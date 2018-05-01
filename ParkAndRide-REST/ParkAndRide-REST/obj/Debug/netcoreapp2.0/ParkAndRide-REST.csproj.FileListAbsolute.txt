@@ -1,0 +1,11 @@
+C:\Users\Daniel\source\repos\ParkAndRide-REST\ParkAndRide-REST\bin\Debug\netcoreapp2.0\ParkAndRide-REST.deps.json
+C:\Users\Daniel\source\repos\ParkAndRide-REST\ParkAndRide-REST\bin\Debug\netcoreapp2.0\ParkAndRide-REST.runtimeconfig.json
+C:\Users\Daniel\source\repos\ParkAndRide-REST\ParkAndRide-REST\bin\Debug\netcoreapp2.0\ParkAndRide-REST.runtimeconfig.dev.json
+C:\Users\Daniel\source\repos\ParkAndRide-REST\ParkAndRide-REST\bin\Debug\netcoreapp2.0\ParkAndRide-REST.dll
+C:\Users\Daniel\source\repos\ParkAndRide-REST\ParkAndRide-REST\bin\Debug\netcoreapp2.0\ParkAndRide-REST.pdb
+C:\Users\Daniel\source\repos\ParkAndRide-REST\ParkAndRide-REST\obj\Debug\netcoreapp2.0\ParkAndRide-REST.csprojResolveAssemblyReference.cache
+C:\Users\Daniel\source\repos\ParkAndRide-REST\ParkAndRide-REST\obj\Debug\netcoreapp2.0\ParkAndRide-REST.csproj.CoreCompileInputs.cache
+C:\Users\Daniel\source\repos\ParkAndRide-REST\ParkAndRide-REST\obj\Debug\netcoreapp2.0\ParkAndRide-REST.AssemblyInfoInputs.cache
+C:\Users\Daniel\source\repos\ParkAndRide-REST\ParkAndRide-REST\obj\Debug\netcoreapp2.0\ParkAndRide-REST.AssemblyInfo.cs
+C:\Users\Daniel\source\repos\ParkAndRide-REST\ParkAndRide-REST\obj\Debug\netcoreapp2.0\ParkAndRide-REST.dll
+C:\Users\Daniel\source\repos\ParkAndRide-REST\ParkAndRide-REST\obj\Debug\netcoreapp2.0\ParkAndRide-REST.pdb
