@@ -56,13 +56,18 @@ for container in events:
     originalprice_ISO =  (container.find_all("li", {"class": "tickets"})[0].text).strip()
     originalprice_UTF = originalprice_ISO.encode("iso-8859-2",'ignore').decode('utf-8')
     print(originalprice_UTF)
-    if "bilety:" in originalprice_UTF:
+    if "bilety:"  in originalprice_UTF:
         new_originalprice_UTF = originalprice_UTF.replace("bilety:","")
         listprices.append(new_originalprice_UTF)
+        print(new_originalprice_UTF)
+    elif "Bilety:" in originalprice_UTF:
+        new_originalprice_UTF = originalprice_UTF.replace("Bilety:", "")
+        listprices.append(new_originalprice_UTF)
+        print(new_originalprice_UTF)
     else:
         listprices.append(originalprice_UTF)
+        print(originalprice_UTF)
 
-    listprices.append(originalprice_UTF)
 
     originalinfo_ISO = (container.find_all("div", {"class": "eventDescription"})[0].text).strip()
     originalinfo_UTF = originalinfo_ISO.encode("iso-8859-2",'ignore').decode('utf-8')
@@ -81,7 +86,8 @@ for container in events:
 
 
 #webscraping drugiego urla
-'''
+
+
 uClient = uReq(my_url[1])
 page_html = uClient.read()
 uClient.close()
@@ -103,22 +109,28 @@ for container2 in events2:
     # strip eliminuje spacje przed i po stringu
     originalcategory_2 = (container2.find_all("a", {"class": "event_category_label_link"})[0].text).strip()
     print("Kategoria: " + originalcategory_2)
+
     if "|" in originalcategory_2:
-        new_original_category_2 = info2.replace("|", "")
+        new_original_category_2 = originalcategory_2.replace("|", "")
         listcategories.append(new_original_category_2)
     else:
         listcategories.append(originalcategory_2)
 
     originaltime_2 = (container2.find_all("p", {"class": "event_info_box_info"})[0].text).strip()
     print("Godzina: " + originaltime_2)
-    listdates.append(originaltime_2)
+    placesanddates = originaltime_2.splitlines()
+    listplaces.append(placesanddates[1])
+    listdates.append(placesanddates[0])
 
-    #print("Miejsce: " + (container2.find_all("a", {"id": "event_infobox_place_link"})[1].text).strip())
+
     originalprice_2 = (container2.find_all("p", {"class": "event_info_box_type_mobile_price"})[0].text).strip()
 
     print("CENA:" + originalprice_2)
     if 'bilety:' in originalprice_2:
         new_originalprice2 = originalprice_2.replace("bilety:","")
+        listprices.append(new_originalprice2)
+    elif 'Bilety:' in originalprice_2:
+        new_originalprice2 = originalprice_2.replace("Bilety:","")
         listprices.append(new_originalprice2)
     else:
         listprices.append(originalprice_2)
@@ -135,7 +147,7 @@ for container2 in events2:
         listinfos.append(info2)
     print("Informacje: " + info3)
 
-    print("")'''
+    print("")
 
 
 #zapis w pętli do bazy danych
@@ -144,9 +156,9 @@ i=1;
 
 cnxn = pyodbc.connect('Driver={SQL Server};Server=LAPTOP-3HJ4DJM0\SQLEXPRESS;Database=Test-Inzynierka;Trusted_Connection=yes;')
 cursor = cnxn.cursor()
-cursor.execute("DELETE FROM [EVENTS_NOW]")
+cursor.execute("DELETE FROM [EVENTS]")
 cnxn.commit()
-for name, date, price, category, info in zip(listnames, listdates, listprices, listcategories, listinfos):
-    cursor.execute("INSERT INTO [EVENTS_NOW] VALUES ('{0}','{1}','{2}','{3}','{4}','{5}');".format(i, name, date, price, category, info))
+for name, date, place, price, category, info in zip(listnames, listdates, listplaces, listprices, listcategories, listinfos):
+    cursor.execute("INSERT INTO [EVENTS] VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}');".format(i, name, date, place,  price, category, info))
     cnxn.commit()
     i = i+1
