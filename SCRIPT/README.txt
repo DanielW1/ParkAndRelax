@@ -1,0 +1,1 @@
+¯eby wam dzia³a³o zpaisywanie do bazy danych musicie zmieniæ ustaiwienia po³¹czenia na wasze, bo narazie jest to robione lokalnie i sa dane mojego lapka
