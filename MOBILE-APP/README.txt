@@ -1,0 +1,1 @@
+NIE wiem czym jest ten folder .vs/App/v15 bo go rczej nie powinno byc, ale zosta³ stworzony przez gita jakos
