@@ -39,7 +39,11 @@ for container in events:
     originalcategory_ISO = (container.find_all("li", {"class": "category"})[0].text).strip()
     originalcategory_UTF = originalcategory_ISO.encode("iso-8859-2",'ignore').decode('utf-8')
     print("Kategoria: " +originalcategory_UTF)
-    listcategories.append(originalcategory_UTF)
+    if "|" in originalcategory_UTF:
+        new_original_category_UTF = originalcategory_UTF.replace("|", "")
+        listcategories.append(new_original_category_UTF)
+    else:
+        listcategories.append(originalcategory_UTF)
 
     originalplace_ISO = (container.find_all("li", {"class": "location"})[0].text).strip()
     originalplace_UTF = originalplace_ISO.encode("iso-8859-2",'ignore').decode('utf-8')
@@ -95,8 +99,11 @@ for container2 in events2:
     # strip eliminuje spacje przed i po stringu
     originalcategory_2 = (container2.find_all("a", {"class": "event_category_label_link"})[0].text).strip()
     print("Kategoria: " + originalcategory_2)
-
-    listcategories.append(originalcategory_2)
+    if "|" in originalcategory_2:
+        new_original_category_2 = info2.replace("|", "")
+        listcategories.append(new_original_category_2)
+    else:
+        listcategories.append(originalcategory_2)
 
     originaltime_2 = (container2.find_all("p", {"class": "event_info_box_info"})[0].text).strip()
     print("Godzina: " + originaltime_2)
@@ -128,8 +135,8 @@ i=1;
 
 cnxn = pyodbc.connect('Driver={SQL Server};Server=LAPTOP-3HJ4DJM0\SQLEXPRESS;Database=Test-Inzynierka;Trusted_Connection=yes;')
 cursor = cnxn.cursor()
-#cursor.execute("DELETE FROM [EVENTS_NOW]")
-#cnxn.commit()
+cursor.execute("DELETE FROM [EVENTS_NOW]")
+cnxn.commit()
 for name, date, price, category, info in zip(listnames, listdates, listprices, listcategories, listinfos):
     cursor.execute("INSERT INTO [EVENTS_NOW] VALUES ('{0}','{1}','{2}','{3}','{4}','{5}');".format(i, name, date, price, category, info))
     cnxn.commit()
