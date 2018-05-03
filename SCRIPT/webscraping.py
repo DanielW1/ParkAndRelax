@@ -3,8 +3,6 @@ from urllib.request import urlopen as uReq
 from bs4 import BeautifulSoup as soup
 import pyodbc
 
-
-
 listdates = []
 listnames = []
 listcategories = []
@@ -47,12 +45,23 @@ for container in events:
 
     originalplace_ISO = (container.find_all("li", {"class": "location"})[0].text).strip()
     originalplace_UTF = originalplace_ISO.encode("iso-8859-2",'ignore').decode('utf-8')
-    listplaces.append(originalplace_UTF)
+    if "|" in originalplace_UTF:
+        new_originalplace = originalplace_UTF.replace("|","")
+        listplaces.append(new_originalplace)
+    else:
+        listplaces.append(originalplace_UTF)
+
     print("Miejsce: " + originalplace_UTF)
 
     originalprice_ISO =  (container.find_all("li", {"class": "tickets"})[0].text).strip()
     originalprice_UTF = originalprice_ISO.encode("iso-8859-2",'ignore').decode('utf-8')
     print(originalprice_UTF)
+    if "bilety:" in originalprice_UTF:
+        new_originalprice_UTF = originalprice_UTF.replace("bilety:","")
+        listprices.append(new_originalprice_UTF)
+    else:
+        listprices.append(originalprice_UTF)
+
     listprices.append(originalprice_UTF)
 
     originalinfo_ISO = (container.find_all("div", {"class": "eventDescription"})[0].text).strip()
@@ -71,13 +80,8 @@ for container in events:
 
 
 
-
-
-
-
 #webscraping drugiego urla
-
-
+'''
 uClient = uReq(my_url[1])
 page_html = uClient.read()
 uClient.close()
@@ -111,8 +115,13 @@ for container2 in events2:
 
     #print("Miejsce: " + (container2.find_all("a", {"id": "event_infobox_place_link"})[1].text).strip())
     originalprice_2 = (container2.find_all("p", {"class": "event_info_box_type_mobile_price"})[0].text).strip()
-    listprices.append(originalprice_2)
+
     print("CENA:" + originalprice_2)
+    if 'bilety:' in originalprice_2:
+        new_originalprice2 = originalprice_2.replace("bilety:","")
+        listprices.append(new_originalprice2)
+    else:
+        listprices.append(originalprice_2)
 
     #print("Informacje: " + (container2.find_all("div", {"class": "event_desc"})[0].text).strip())
     #info = (container2.find_all("div", {"class": "event_desc"})[0].text).strip()
@@ -126,7 +135,7 @@ for container2 in events2:
         listinfos.append(info2)
     print("Informacje: " + info3)
 
-    print("")
+    print("")'''
 
 
 #zapis w pętli do bazy danych
