@@ -10,85 +10,86 @@ listprices = []
 listinfos = []
 listplaces = []
 
-my_url = ['http://kulturalnie.waw.pl/','https://goingapp.pl/calendar/1/warszawa/1/any/any']
+my_url = ['http://kulturalnie.waw.pl/','http://kulturalnie.waw.pl/2/','http://kulturalnie.waw.pl/3/','http://kulturalnie.waw.pl/4/','https://goingapp.pl/calendar/1/warszawa/1/any/any']
 
-uClient = uReq(my_url[0])
-page_html = uClient.read()
-uClient.close()
+for x in range(0,4):
+    uClient = uReq(my_url[x])
+    page_html = uClient.read()
+    uClient.close()
 
-page_soup = soup(page_html, "html.parser")
+    page_soup = soup(page_html, "html.parser")
 
-events = page_soup.findAll("li", {"class":"event"})
+    events = page_soup.findAll("li", {"class":"event"})
 
-for container in events:
-    originaldate_ISO = container.find_all("span", {"class": "date"})[0].text
-    originaldate_UTF = originaldate_ISO.encode("iso-8859-2",'ignore').decode('utf-8')
-    print("DATA: " + originaldate_UTF)
-    listdates.append(originaldate_UTF)
+    for container in events:
+        originaldate_ISO = container.find_all("span", {"class": "date"})[0].text
+        originaldate_UTF = originaldate_ISO.encode("iso-8859-2",'ignore').decode('utf-8')
+        print("DATA: " + originaldate_UTF)
+        listdates.append(originaldate_UTF)
 
-    originalname_ISO = (container.find_all("h2", {"itemprop": "name"})[0].text).strip()
-    [line for line in originalname_ISO.split("\n") if line.strip() != '']
-    originalname_UTF = originalname_ISO.encode("iso-8859-2",'ignore').decode('utf-8')
-    print("NAZWA: " + originalname_UTF)
-    listnames.append(originalname_UTF)
+        originalname_ISO = (container.find_all("h2", {"itemprop": "name"})[0].text).strip()
+        [line for line in originalname_ISO.split("\n") if line.strip() != '']
+        originalname_UTF = originalname_ISO.encode("iso-8859-2",'ignore').decode('utf-8')
+        print("NAZWA: " + originalname_UTF)
+        listnames.append(originalname_UTF)
 
-    #strip eliminuje spacje przed i po stringu
+        #strip eliminuje spacje przed i po stringu
 
-    originalcategory_ISO = (container.find_all("li", {"class": "category"})[0].text).strip()
-    originalcategory_UTF = originalcategory_ISO.encode("iso-8859-2",'ignore').decode('utf-8')
-    print("Kategoria: " +originalcategory_UTF)
-    if "|" in originalcategory_UTF:
-        new_original_category_UTF = originalcategory_UTF.replace("|", "")
-        listcategories.append(new_original_category_UTF)
-    else:
-        listcategories.append(originalcategory_UTF)
+        originalcategory_ISO = (container.find_all("li", {"class": "category"})[0].text).strip()
+        originalcategory_UTF = originalcategory_ISO.encode("iso-8859-2",'ignore').decode('utf-8')
+        print("Kategoria: " +originalcategory_UTF)
+        if "|" in originalcategory_UTF:
+            new_original_category_UTF = originalcategory_UTF.replace("|", "")
+            listcategories.append(new_original_category_UTF)
+        else:
+            listcategories.append(originalcategory_UTF)
 
-    originalplace_ISO = (container.find_all("li", {"class": "location"})[0].text).strip()
-    originalplace_UTF = originalplace_ISO.encode("iso-8859-2",'ignore').decode('utf-8')
-    if "|" in originalplace_UTF:
-        new_originalplace = originalplace_UTF.replace("|","")
-        listplaces.append(new_originalplace)
-    else:
-        listplaces.append(originalplace_UTF)
+        originalplace_ISO = (container.find_all("li", {"class": "location"})[0].text).strip()
+        originalplace_UTF = originalplace_ISO.encode("iso-8859-2",'ignore').decode('utf-8')
+        if "|" in originalplace_UTF:
+            new_originalplace = originalplace_UTF.replace("|","")
+            listplaces.append(new_originalplace)
+        else:
+            listplaces.append(originalplace_UTF)
 
-    print("Miejsce: " + originalplace_UTF)
+        print("Miejsce: " + originalplace_UTF)
 
-    originalprice_ISO =  (container.find_all("li", {"class": "tickets"})[0].text).strip()
-    originalprice_UTF = originalprice_ISO.encode("iso-8859-2",'ignore').decode('utf-8')
-    print(originalprice_UTF)
-    if "bilety:"  in originalprice_UTF:
-        new_originalprice_UTF = originalprice_UTF.replace("bilety:","")
-        listprices.append(new_originalprice_UTF)
-        print(new_originalprice_UTF)
-    elif "Bilety:" in originalprice_UTF:
-        new_originalprice_UTF = originalprice_UTF.replace("Bilety:", "")
-        listprices.append(new_originalprice_UTF)
-        print(new_originalprice_UTF)
-    else:
-        listprices.append(originalprice_UTF)
+        originalprice_ISO =  (container.find_all("li", {"class": "tickets"})[0].text).strip()
+        originalprice_UTF = originalprice_ISO.encode("iso-8859-2",'ignore').decode('utf-8')
         print(originalprice_UTF)
+        if "bilety:"  in originalprice_UTF:
+            new_originalprice_UTF = originalprice_UTF.replace("bilety:","")
+            listprices.append(new_originalprice_UTF)
+            print(new_originalprice_UTF)
+        elif "Bilety:" in originalprice_UTF:
+            new_originalprice_UTF = originalprice_UTF.replace("Bilety:", "")
+            listprices.append(new_originalprice_UTF)
+            print(new_originalprice_UTF)
+        else:
+            listprices.append(originalprice_UTF)
+            print(originalprice_UTF)
 
 
-    originalinfo_ISO = (container.find_all("div", {"class": "eventDescription"})[0].text).strip()
-    originalinfo_UTF = originalinfo_ISO.encode("iso-8859-2",'ignore').decode('utf-8')
-    if "\'" in originalinfo_UTF:
-        new_originalinfo_UTF = originalinfo_UTF.replace("\'"," ")
-        listinfos.append(new_originalinfo_UTF)
-        print("Informacje: " + new_originalinfo_UTF)
-    else:
-        listinfos.append(originalinfo_UTF)
-        print("Informacje: " + originalinfo_UTF)
+        originalinfo_ISO = (container.find_all("div", {"class": "eventDescription"})[0].text).strip()
+        originalinfo_UTF = originalinfo_ISO.encode("iso-8859-2",'ignore').decode('utf-8')
+        if "\'" in originalinfo_UTF:
+            new_originalinfo_UTF = originalinfo_UTF.replace("\'"," ")
+            listinfos.append(new_originalinfo_UTF)
+            print("Informacje: " + new_originalinfo_UTF)
+        else:
+            listinfos.append(originalinfo_UTF)
+            print("Informacje: " + originalinfo_UTF)
 
 
 
-    print("\n")
+        print("\n")
 
 
 
 #webscraping drugiego urla
 
 
-uClient = uReq(my_url[1])
+uClient = uReq(my_url[3])
 page_html = uClient.read()
 uClient.close()
 
