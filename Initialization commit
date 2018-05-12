@@ -1,0 +1,89 @@
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch master
+#
+# Initial commit
+#
+# Changes to be committed:
+#	new file:   ParkAndRide-REST/.vs/ParkAndRide-REST/v15/.suo
+#	new file:   ParkAndRide-REST/.vs/ParkAndRide-REST/v15/Server/sqlite3/db.lock
+#	new file:   ParkAndRide-REST/.vs/ParkAndRide-REST/v15/Server/sqlite3/storage.ide
+#	new file:   ParkAndRide-REST/.vs/config/applicationhost.config
+#	new file:   ParkAndRide-REST/ParkAndRide-REST.sln
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/Controllers/HomeController.cs
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/Models/ErrorViewModel.cs
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/ParkAndRide-REST.csproj
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/Program.cs
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/Properties/launchSettings.json
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/Startup.cs
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/Views/Home/About.cshtml
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/Views/Home/Contact.cshtml
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/Views/Home/Index.cshtml
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/Views/Shared/Error.cshtml
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/Views/Shared/_Layout.cshtml
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/Views/Shared/_ValidationScriptsPartial.cshtml
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/Views/_ViewImports.cshtml
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/Views/_ViewStart.cshtml
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/appsettings.Development.json
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/appsettings.json
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/bin/Debug/netcoreapp2.0/ParkAndRide-REST.deps.json
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/bin/Debug/netcoreapp2.0/ParkAndRide-REST.dll
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/bin/Debug/netcoreapp2.0/ParkAndRide-REST.pdb
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/bin/Debug/netcoreapp2.0/ParkAndRide-REST.runtimeconfig.dev.json
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/bin/Debug/netcoreapp2.0/ParkAndRide-REST.runtimeconfig.json
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/bundleconfig.json
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/obj/Debug/netcoreapp2.0/ParkAndRide-REST.AssemblyInfo.cs
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/obj/Debug/netcoreapp2.0/ParkAndRide-REST.AssemblyInfoInputs.cache
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/obj/Debug/netcoreapp2.0/ParkAndRide-REST.csproj.CoreCompileInputs.cache
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/obj/Debug/netcoreapp2.0/ParkAndRide-REST.csproj.FileListAbsolute.txt
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/obj/Debug/netcoreapp2.0/ParkAndRide-REST.csprojResolveAssemblyReference.cache
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/obj/Debug/netcoreapp2.0/ParkAndRide-REST.dll
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/obj/Debug/netcoreapp2.0/ParkAndRide-REST.pdb
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/obj/ParkAndRide-REST.csproj.nuget.cache
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/obj/ParkAndRide-REST.csproj.nuget.g.props
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/obj/ParkAndRide-REST.csproj.nuget.g.targets
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/obj/project.assets.json
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/wwwroot/css/site.css
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/wwwroot/css/site.min.css
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/wwwroot/favicon.ico
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/wwwroot/images/banner1.svg
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/wwwroot/images/banner2.svg
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/wwwroot/images/banner3.svg
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/wwwroot/images/banner4.svg
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/wwwroot/js/site.js
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/wwwroot/js/site.min.js
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/wwwroot/lib/bootstrap/.bower.json
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/wwwroot/lib/bootstrap/LICENSE
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/wwwroot/lib/bootstrap/dist/css/bootstrap-theme.css
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/wwwroot/lib/bootstrap/dist/css/bootstrap-theme.css.map
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/wwwroot/lib/bootstrap/dist/css/bootstrap-theme.min.css
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/wwwroot/lib/bootstrap/dist/css/bootstrap-theme.min.css.map
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/wwwroot/lib/bootstrap/dist/css/bootstrap.css
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/wwwroot/lib/bootstrap/dist/css/bootstrap.css.map
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css.map
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/wwwroot/lib/bootstrap/dist/fonts/glyphicons-halflings-regular.eot
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/wwwroot/lib/bootstrap/dist/fonts/glyphicons-halflings-regular.svg
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/wwwroot/lib/bootstrap/dist/fonts/glyphicons-halflings-regular.ttf
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/wwwroot/lib/bootstrap/dist/fonts/glyphicons-halflings-regular.woff
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/wwwroot/lib/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/wwwroot/lib/bootstrap/dist/js/bootstrap.js
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/wwwroot/lib/bootstrap/dist/js/npm.js
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/wwwroot/lib/jquery-validation-unobtrusive/.bower.json
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/wwwroot/lib/jquery-validation/.bower.json
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/wwwroot/lib/jquery-validation/LICENSE.md
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/wwwroot/lib/jquery-validation/dist/additional-methods.js
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/wwwroot/lib/jquery-validation/dist/additional-methods.min.js
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/wwwroot/lib/jquery-validation/dist/jquery.validate.js
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/wwwroot/lib/jquery-validation/dist/jquery.validate.min.js
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/wwwroot/lib/jquery/.bower.json
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/wwwroot/lib/jquery/LICENSE.txt
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/wwwroot/lib/jquery/dist/jquery.js
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/wwwroot/lib/jquery/dist/jquery.min.js
+#	new file:   ParkAndRide-REST/ParkAndRide-REST/wwwroot/lib/jquery/dist/jquery.min.map
+#
