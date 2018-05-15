@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+
 using ParkAndRide_REST.Models;
 
 namespace ParkAndRide_REST.Controllers
@@ -12,7 +14,9 @@ namespace ParkAndRide_REST.Controllers
     {
         public string[] Index()
         {
-
+            
+            
+         
             return new string[] { "ime", "nazwisko" };
         }
 
