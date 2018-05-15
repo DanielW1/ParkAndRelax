@@ -12,7 +12,7 @@ listplaces = []
 
 my_url = ['http://kulturalnie.waw.pl/','http://kulturalnie.waw.pl/2/','http://kulturalnie.waw.pl/3/','http://kulturalnie.waw.pl/4/','https://goingapp.pl/calendar/1/warszawa/1/any/any']
 
-for x in range(0,4):
+for x in range(0,3):
     uClient = uReq(my_url[x])
     page_html = uClient.read()
     uClient.close()
@@ -69,17 +69,22 @@ for x in range(0,4):
             listprices.append(originalprice_UTF)
             print(originalprice_UTF)
 
-
-        originalinfo_ISO = (container.find_all("div", {"class": "eventDescription"})[0].text).strip()
-        originalinfo_UTF = originalinfo_ISO.encode("iso-8859-2",'ignore').decode('utf-8')
-        if "\'" in originalinfo_UTF:
-            new_originalinfo_UTF = originalinfo_UTF.replace("\'"," ")
-            listinfos.append(new_originalinfo_UTF)
-            print("Informacje: " + new_originalinfo_UTF)
-        else:
-            listinfos.append(originalinfo_UTF)
-            print("Informacje: " + originalinfo_UTF)
-
+        try:
+            originalinfo_ISO = (container.find_all("div", {"class": "eventDescription"})[0].text).strip()
+            originalinfo_UTF = originalinfo_ISO.encode("iso-8859-2",'ignore').decode('utf-8')
+            if "\"" in originalinfo_UTF:
+                new_originalinfo_UTF = originalinfo_UTF.replace("\""," ")
+                listinfos.append(new_originalinfo_UTF)
+                print("Informacje: " + new_originalinfo_UTF)
+            elif "\'" in originalinfo_UTF:
+                new_originalinfo_UTF = originalinfo_UTF.replace("\'"," ")
+                listinfos.append(new_originalinfo_UTF)
+                print("Informacje: " + new_originalinfo_UTF)
+            else:
+                listinfos.append(originalinfo_UTF)
+                print("Informacje: " + originalinfo_UTF)
+        except UnicodeDecodeError:
+            b'\0xf3'.decode('utf-8',"replace")
 
 
         print("\n")
