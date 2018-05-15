@@ -14,38 +14,40 @@ namespace Viewer.Services
 
     public interface IConvertingjsonService
     {
-        Task<List<Event>> ConvertAllEvents();
+        Task<List<ParkRide>> GetAllParkings();
     }
 
 
     public class ConvertingJsonService: IConvertingjsonService
     {
-        public List<Event> _EventList;
-        private readonly IAssetReader assetReader = Locator.Current.GetService<IAssetReader>();
+        public List<ParkRide> _Parkings;
+        private readonly IAssetReader _assetReader = Locator.Current.GetService<IAssetReader>();
+        private readonly string _filename;
 
-        public async Task GetEvents(string path)
+        public async Task GetEvents(string filename)
         {
-            var json = assetReader.GetStreamFromAssets("sfsf");
+            var json = _assetReader.GetStreamFromAssets(filename);
             using (StreamReader streamReader = new StreamReader(json))
             {
-                _EventList = JsonConvert.DeserializeObject<List<Event>>(await streamReader.ReadToEndAsync(), new JsonSerializerSettings
+                _Parkings = JsonConvert.DeserializeObject<List<ParkRide>>(await streamReader.ReadToEndAsync(), new JsonSerializerSettings
                 {
                     TypeNameHandling = TypeNameHandling.All
                 });
             }
         }
 
-        public async Task<List<Event>> ConvertAllEvents()
+        public async Task<List<ParkRide>> GetAllParkings()
         {
-            if(_EventList == null)
+            if(_Parkings == null)
             {
-                await GetEvents("sdfsdfsd");
+                await GetEvents(_filename);
             }
-            return _EventList;
+            return _Parkings;
         }
-        public ConvertingJsonService()
+        public ConvertingJsonService(string filename)
         {
-
+            _assetReader = Locator.Current.GetService<IAssetReader>();
+            _filename = filename;
         }
     }
 }

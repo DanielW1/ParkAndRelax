@@ -7,7 +7,7 @@ using Viewer.Services;
 
 namespace Viewer
 {
-    class Bootstraper
+    public class Bootstraper
     {
         public static void Initialize()
         {
