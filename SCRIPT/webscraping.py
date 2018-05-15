@@ -85,7 +85,7 @@ for x in range(0,3):
                 print("Informacje: " + originalinfo_UTF)
         except UnicodeDecodeError:
             b'\0xf3'.decode('utf-8',"replace")
-
+            listinfos.append('Błąd przy dekodowaniu')
 
         print("\n")
 
