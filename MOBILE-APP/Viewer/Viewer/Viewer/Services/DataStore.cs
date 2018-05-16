@@ -21,12 +21,12 @@ namespace Viewer.Services
 {
     public class DataStore : IDataStore<Category>
     {
-        List<Category> categories;
+        List<Item> items;
 
         public DataStore()
         {
-            categories = new List<Category>();
-            var mockItems = new List<Category>
+            items = new List<Item>();
+            var mockItems = new List<Item>
             {
                 new Category { Id = 1, Text = "Koncert"},
                 new Category { Id = 2, Text = "Spotkanie"},
@@ -36,44 +36,44 @@ namespace Viewer.Services
 
             };
 
-            foreach (var category in mockItems)
+            foreach (var item in mockItems)
             {
-                categories.Add(category);
+                items.Add(item);
             }
         }
 
-        public async Task<bool> AddItemAsync(Category category)
+        public async Task<bool> AddItemAsync(Item item)
         {
-            categories.Add(category);
+            items.Add(item);
 
             return await Task.FromResult(true);
         }
 
-        public async Task<bool> UpdateItemAsync(Category category)
+        public async Task<bool> UpdateItemAsync(Item item)
         {
-            var _category = categories.Where((Category arg) => arg.Id == category.Id).FirstOrDefault();
-            categories.Remove(_category);
-            categories.Add(category);
+            var _item = items.Where((Item arg) => arg.Id == item.Id).FirstOrDefault();
+            items.Remove(_item);
+            items.Add(item);
 
             return await Task.FromResult(true);
         }
 
-        public async Task<bool> DeleteItemAsync(Category category)
+        public async Task<bool> DeleteItemAsync(Item item)
         {
-            var _item = categories.Where((Category arg) => arg.Id == category.Id).FirstOrDefault();
-            categories.Remove(_item);
+            var _item = items.Where((Item arg) => arg.Id == item.Id).FirstOrDefault();
+            items.Remove(_item);
 
             return await Task.FromResult(true);
         }
 
-        public async Task<Category> GetItemAsync(int id)
+        public async Task<Item> GetItemAsync(string id)
         {
-            return await Task.FromResult(categories.FirstOrDefault(s => s.Id == id));
+            return await Task.FromResult(items.FirstOrDefault(s => s.Id == id));
         }
 
-        public async Task<IEnumerable<Category>> GetItemsAsync(bool forceRefresh = false)
+        public async Task<IEnumerable<Item>> GetItemsAsync(bool forceRefresh = false)
         {
-            return await Task.FromResult(categories);
+            return await Task.FromResult(items);
         }
     }
 }
