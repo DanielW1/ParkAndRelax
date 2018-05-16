@@ -14,7 +14,7 @@ namespace Viewer.ViewModels
 
         protected ReactiveViewModel(ViewModelActivator viewModelActivator)
         {
-            activator = viewModelActivator;
+            Activator = viewModelActivator;
         }
     }
 }

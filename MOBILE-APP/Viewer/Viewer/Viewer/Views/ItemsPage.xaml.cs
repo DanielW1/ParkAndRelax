@@ -27,7 +27,7 @@ namespace Viewer.Views
 
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
-            var item = args.SelectedItem as Item;
+            var item = args.SelectedItem as Category;
             if (item == null)
                 return;
 

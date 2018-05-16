@@ -5,14 +5,25 @@ using System.Threading.Tasks;
 
 using Viewer.Models;
 
-[assembly: Xamarin.Forms.Dependency(typeof(Viewer.Services.MockDataStore))]
+
+public interface IDataStore<T>
+{
+    Task<bool> AddItemAsync(T category);
+    Task<bool> UpdateItemAsync(T category);
+    Task<bool> DeleteItemAsync(T category);
+    Task<T> GetItemAsync(int id);
+    Task<IEnumerable<T>> GetItemsAsync(bool forceRefresh = false);
+}
+
+
+//[assembly: Xamarin.Forms.Dependency(typeof(Viewer.Services.DataStore))]
 namespace Viewer.Services
 {
-    public class MockDataStore : IDataStore<Category>
+    public class DataStore : IDataStore<Category>
     {
         List<Category> categories;
 
-        public MockDataStore()
+        public DataStore()
         {
             categories = new List<Category>();
             var mockItems = new List<Category>
@@ -21,7 +32,8 @@ namespace Viewer.Services
                 new Category { Id = 2, Text = "Spotkanie"},
                 new Category { Id = 3, Text = "Wykład" },
                 new Category { Id = 4, Text = "Orkiestra" },
-                
+                new Category { Id = 5, Text = "Teatr" },
+
             };
 
             foreach (var category in mockItems)
