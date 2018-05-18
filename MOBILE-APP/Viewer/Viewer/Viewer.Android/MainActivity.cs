@@ -3,13 +3,10 @@ using Android.App;
 using Android.Content.PM;
 using Android.Runtime;
 using Android.OS;
-using ReactiveUI.AndroidSupport;
-using Viewer.ViewModels;
 using Viewer.Droid.Views;
+using Viewer.ViewModels;
 using Viewer.Droid.Helpers;
-
-
-
+using ReactiveUI.AndroidSupport;
 
 namespace Viewer.Droid
 {
