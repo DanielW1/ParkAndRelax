@@ -20,7 +20,7 @@ namespace Viewer.ViewModels
         public MapViewModel()
         {
 
-            this.WhenActivated((CompositeDisposable disposable) =>
+            this.WhenActivated(disposable=>
             {
                 IConvertingjsonService service = Locator.CurrentMutable.GetService<IConvertingjsonService>();
 

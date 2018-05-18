@@ -2,7 +2,7 @@
 using Splat;
 using Viewer.Services;
 using Viewer.Droid.Helpers;
-
+using ReactiveUI;
 
 namespace Viewer
 {

@@ -10,7 +10,12 @@ using ReactiveUI.AndroidSupport;
 
 namespace Viewer.Droid
 {
-    [Activity(Label = "Viewer", Icon = "@drawable/icon",  MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Label = "Viewer",
+        MainLauncher = true,
+        Theme = "@style/MainTheme", 
+        Icon = "@drawable/icon",  
+         
+        ConfigurationChanges = Android.Content.PM.ConfigChanges.Orientation | Android.Content.PM.ConfigChanges.ScreenSize)]
     public class MainActivity:ReactiveAppCompatActivity
     {
         protected override void OnCreate(Bundle bundle)
@@ -22,10 +27,7 @@ namespace Viewer.Droid
 
             SetContentView(Resource.Layout.First);
 
-            var mainFragment = new MainFragment()
-            {
-                ViewModel = new MainViewModel()
-            };
+            var mainFragment = new MainFragment(){ ViewModel = new MainViewModel()};
            
             this.NextFragment(Resource.Id.frame, mainFragment);
         }
