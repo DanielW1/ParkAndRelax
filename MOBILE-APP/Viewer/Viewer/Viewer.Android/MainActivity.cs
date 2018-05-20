@@ -20,9 +20,9 @@ namespace Viewer.Droid
     {
         protected override void OnCreate(Bundle bundle)
         {
-            Bootstrapper.Initialize();
             BootstraperDroid.Initialize();
-
+            Bootstrapper.Initialize();
+            
             base.OnCreate(bundle);
 
             SetContentView(Resource.Layout.First);

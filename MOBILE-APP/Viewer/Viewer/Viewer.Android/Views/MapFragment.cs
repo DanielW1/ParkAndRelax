@@ -5,8 +5,13 @@ using Android.Views;
 using ReactiveUI;
 using Viewer.Models;
 using Viewer.ViewModels;
-
-
+using Android.Gms.Maps.Model;
+using System.Reactive.Linq;
+using System;
+using System.Collections.Generic;
+using Splat;
+using Viewer.Services;
+using System.Reactive.Disposables;
 
 namespace Viewer.Droid.Views
 {
@@ -37,6 +42,29 @@ namespace Viewer.Droid.Views
 
             _mapFragment.GetMapAsync(this);
             return view;
+        }
+
+        public MapFragment()
+        {
+            this.WhenActivated(disposable =>
+            {
+
+                this.WhenAnyValue(z => z.ViewModel.ParkandRides, z=> z.GoogleMap)
+                .Where(z => z.Item1?.Count > 0 && z.Item2 != null)
+                .ObserveOn(RxApp.MainThreadScheduler)
+                .Subscribe(data =>
+                {
+                    foreach (var parking in data.Item1)
+                    {
+                        data.Item2.AddMarker(new MarkerOptions()
+                            .SetPosition(new LatLng(parking.Latitude, parking.Longtitude))
+                            .SetTitle(parking.Place)
+                            .SetSnippet(parking.Location));
+                        System.Diagnostics.Debug.WriteLine(parking.Id);
+                    }
+                }).DisposeWith(disposable);
+               
+            });
         }
 
         public void OnMapReady(GoogleMap googleMap)

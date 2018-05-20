@@ -1,10 +1,9 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 
 namespace Viewer.Services
 {
     public interface IAssetReader
     {
-        Stream GetStreamFromAssets(string path);
+        Stream GetStreamFromAssets(string filename);
     }
 }

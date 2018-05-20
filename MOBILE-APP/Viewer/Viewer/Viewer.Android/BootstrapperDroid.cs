@@ -10,7 +10,7 @@ namespace Viewer
     {
         public static void Initialize()
         {
-            Locator.CurrentMutable.RegisterConstant<IAssetReader>(new ReadFileFromAssetsDroid());
+            Locator.CurrentMutable.RegisterConstant<IAssetReader>(new ReadFileFromAssets());
              
         }
     }

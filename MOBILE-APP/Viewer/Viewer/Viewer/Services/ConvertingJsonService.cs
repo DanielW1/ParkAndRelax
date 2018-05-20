@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Viewer.Models;
-using Viewer.Services;
 using Splat;
-using ReactiveUI;
 using Newtonsoft.Json;
 using System.IO;
 
@@ -20,8 +16,8 @@ namespace Viewer.Services
 
     public class ConvertingJsonService : IConvertingjsonService
     {
-        public List<ParkRide> _Parkings;
-        private readonly IAssetReader _assetReader = Locator.Current.GetService<IAssetReader>();
+        private List<ParkRide> _Parkings;
+        private readonly IAssetReader _assetReader;
         private readonly string _filename;
 
         public async Task GetEvents(string filename)

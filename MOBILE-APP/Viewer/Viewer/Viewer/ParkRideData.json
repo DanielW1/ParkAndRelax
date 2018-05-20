@@ -1,0 +1,122 @@
+[
+  {
+    "ID": 1,
+    "Place": "P+R METRO MARYMONT",
+    "Location": "Żoliborz, close to the intersection of Słowackiego and Włościańska Streets.",
+    "Latitude": 52.27114,
+    "Longtitude": 20.97046,
+    "Capacity": 400
+  },
+  {
+    "ID": 2,
+    "Place": "P+R ANIN SKM",
+    "Location": "Anin, close to the intersection of Szpotańskiego and VIII Poprzeczna Streets, close to Warszawa Anin train station.",
+    "Latitude": 52.21349,
+    "Longtitude": 21.16038,
+    "Capacity": 83
+  },
+  {
+    "ID": 3,
+    "Place": "P+R AL. KRAKOWSKA",
+    "Location": "Włochy, close to the intersection of Krakowska Avenue and Mineralna Street, close to the tram & bus terminus ",
+    "Latitude": 52.175136,
+    "Longtitude": 20.943750,
+    "Capacity": 415
+  },
+  {
+    "ID": 4,
+    "Place": "P+R WAWER SKM",
+    "Location": "Wawer, WIDoczna Street, close to Warszawa Wawer train station",
+    "Latitude": 52.22242,
+    "Longtitude": 21.14983,
+    "Capacity": 133
+  },
+  {
+    "ID": 5,
+    "Place": "P+R METRO IMIELIN",
+    "Location": "Ursynów, close to the intersection of Komisji Edukacji Narodowej Avenue and Indiry Gandhi Street, behind the Multikino, close to metro station",
+    "Latitude": 52.150227,
+    "Longtitude": 21.047352,
+    "Capacity": 236
+  },
+  {
+    "ID": 6,
+    "Place": "P+R URSUS NIEDŹWIADEK",
+    "Location": "st. Orląt Lwowskich 45, near to the bus terminus Ursus Niedźwiadek and railvay station",
+    "Latitude": 52.1910486!4,
+    "Longtitude": 20.8675057,
+    "Capacity": 348
+  },
+  {
+    "ID": 7,
+    "Place": "P+R METRO WAWRZYSZEW",
+    "Location": "Bielany, close to the intersection of Kasprowicza and Przytyk Streets, next to Wawrzyszew metro station",
+    "Latitude": 52.28701,
+    "Longtitude": 20.93805,
+    "Capacity": 80
+  },
+  {
+    "ID": 8,
+    "Place": "parking P+R Stadion Narodowy (National Stadium)",
+    "Location": "Praga Południe, parking Place of the National Stadium, next to railvay station Warszawa Stadion.",
+    "Latitude": 52.245011,
+    "Longtitude": 21.044525,
+    "Capacity": 110
+  },
+  {
+    "ID": 9,
+    "Place": "parking P+R METRO STOKŁOSY",
+    "Location": "Ursynów, close to the intersection of Komisji Edukacji Narodowej avenue and i Ciszewskiego street, next to the metro station Stokłosy",
+    "Latitude": 52.15394,
+    "Longtitude": 21.03757,
+    "Capacity": 393
+  },
+  {
+    "ID": 10,
+    "Place": "P+R METRO MŁOCINY",
+    "Location": "Bielany, close to the intersection of 30 Pułku Strzelców Kaniowskich and Zgrupowania AK Kampinos Streets, next to metro station ",
+    "Latitude": 52.29023,
+    "Longtitude": 20.92718,
+    "Capacity": 1010
+  },
+  {
+    "ID": 11,
+    "Place": "P+R METRO MŁOCINY II",
+    "Location": " Bielany, close to the intersection of 30 Pułku Strzelców Kaniowskich Street and Zgrupowania AK Kampinos Street, next to metro station ",
+    "Latitude": 52.292621,
+    "Longtitude": 20.928971,
+    "Capacity": 72
+  },
+  {
+    "ID": 12,
+    "Place": "parking P+R METRO MŁOCINY III",
+    "Location": "Bielany, between Nocznickiego and Sokratesa streets, next to metro station",
+    "Latitude": 52.29018,
+    "Longtitude": 20.93114,
+    "Capacity": 157
+  },
+  {
+    "ID": 13,
+    "Place": "P+R METRO URSYNÓW",
+    "Location": "Ursynów, close to the intersection of Komisji Edukacji Narodowej Avenue and Ciszewskiego Street , next to metro station.",
+    "Latitude": 52.16259,
+    "Longtitude": 21.02742,
+    "Capacity": 166
+  },
+  {
+    "ID": 14,
+    "Place": "P+R AL. WILANOWSKA",
+    "Location": "Mokotów, close to the intersection of Puławska Street and Wilanowska Avenue, next to the metro station  ",
+    "Latitude": 52.18005,
+    "Longtitude": 21.02476,
+    "Capacity": 290
+  },
+  {
+    "ID": 15,
+    "Place": "P+R POŁCZYŃSKA",
+    "Location": "Bemowo, Połczyńska Street, between a car salon and railway line ",
+    "Latitude": 52.22222,
+    "Longtitude": 20.92240,
+    "Capacity": 500
+  }
+]

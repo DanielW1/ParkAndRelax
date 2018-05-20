@@ -6,11 +6,11 @@ using Viewer.Services;
 
 namespace Viewer.Droid.Helpers
 {
-    class ReadFileFromAssetsDroid : IAssetReader
+    class ReadFileFromAssets : IAssetReader
     {
         private readonly Context _context;
 
-        public ReadFileFromAssetsDroid()
+        public ReadFileFromAssets()
         {
             _context = Application.Context;
         }
