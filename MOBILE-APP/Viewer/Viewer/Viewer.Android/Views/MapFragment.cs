@@ -25,8 +25,8 @@ namespace Viewer.Droid.Views
             var view = inflater.Inflate(Resource.Layout.fragment_map, container, false);
 
 
-            GoogleMapOptions mapOptions = new GoogleMapOptions()
-                .InvokeMapType(GoogleMap.MapTypeSatellite)
+            var mapOptions = new GoogleMapOptions()
+                .InvokeMapType(GoogleMap.MapTypeNormal)
                 .InvokeZoomControlsEnabled(false)
                 .InvokeCompassEnabled(true);
 
@@ -36,8 +36,6 @@ namespace Viewer.Droid.Views
             fragTx.Commit();
 
             _mapFragment.GetMapAsync(this);
-
-
             return view;
         }
 

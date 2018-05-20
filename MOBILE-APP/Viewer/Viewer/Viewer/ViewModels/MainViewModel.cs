@@ -11,12 +11,12 @@ namespace Viewer.ViewModels
     {
         public MainViewModel()
         {
-            NavigateToMap = ReactiveCommand.Create<Unit, MapViewModel>(_ => new MapViewModel());
+            SwitchToMap = ReactiveCommand.Create<Unit, MapViewModel>(_ => new MapViewModel());
             this.WhenActivated((CompositeDisposable disposable) =>
             {
 
             });
         }
-        public ReactiveCommand<Unit,MapViewModel> NavigateToMap { get; }
+        public ReactiveCommand<Unit,MapViewModel> SwitchToMap { get; }
     }
 }

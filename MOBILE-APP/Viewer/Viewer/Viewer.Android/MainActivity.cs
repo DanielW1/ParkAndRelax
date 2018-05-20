@@ -16,7 +16,7 @@ namespace Viewer.Droid
         Icon = "@drawable/icon",  
          
         ConfigurationChanges = Android.Content.PM.ConfigChanges.Orientation | Android.Content.PM.ConfigChanges.ScreenSize)]
-    public class MainActivity:ReactiveAppCompatActivity
+    public class MainActivity : ReactiveAppCompatActivity
     {
         protected override void OnCreate(Bundle bundle)
         {
@@ -28,7 +28,6 @@ namespace Viewer.Droid
             SetContentView(Resource.Layout.First);
 
             var mainFragment = new MainFragment(){ ViewModel = new MainViewModel()};
-           
             this.NextFragment(Resource.Id.frame, mainFragment);
         }
     }

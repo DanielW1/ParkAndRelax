@@ -15,22 +15,26 @@ namespace Viewer.Droid.Views
 {
     public class MainFragment:ReactiveUI.AndroidSupport.ReactiveFragment<MainViewModel>
     {
-        Button _mapButton;
+        Button _concertButton;
         public MainFragment()
         {
-           /* ViewModel.NavigateToMap.Subscribe(MapViewModel =>
+            this.WhenActivated(disposable =>
             {
-                var mapFragment = new MapFragment { ViewModel = MapViewModel };
-                Activity.NextFragment(Resource.Id.frame, mapFragment);
-            });*/
-            //_mapButton.Events().Click.Select(_ => Unit.Default).InvokeCommand(this, x => x.ViewModel.NavigateToMap);
+                ViewModel.SwitchToMap.Subscribe(MapViewModel =>
+                {
+                    var mapFragment = new MapFragment { ViewModel = MapViewModel };
+                    Activity.NextFragment(Resource.Id.frame, mapFragment);
+                });
+                _concertButton.Events().Click.Select(_ => Unit.Default).InvokeCommand(this, x => x.ViewModel.SwitchToMap);
+            });
+           
         }
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             base.OnCreateView(inflater, container, savedInstanceState);
 
             var view = inflater.Inflate(Resource.Layout.fragment_main, container, false);
-            _mapButton = view.FindViewById<Button>(Resource.Id.mapButton);
+            _concertButton = view.FindViewById<Button>(Resource.Id.concertButton);
             return view;
         }
     }
