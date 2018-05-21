@@ -22,7 +22,11 @@ namespace Viewer.Droid.Views
             {
                 ViewModel.SwitchToMap.Subscribe(MapViewModel =>
                 {
-                    var mapFragment = new MapFragment { ViewModel = MapViewModel };
+
+                    var mapFragment = new MapFragment(52.2162198, 21.0144244, "Polska dla Polaków","Tutaj można wszystko")
+                    {
+                        ViewModel = MapViewModel
+                    };
                     Activity.NextFragment(Resource.Id.frame, mapFragment);
                 });
                 _concertButton.Events().Click.Select(_ => Unit.Default).InvokeCommand(this, x => x.ViewModel.SwitchToMap);

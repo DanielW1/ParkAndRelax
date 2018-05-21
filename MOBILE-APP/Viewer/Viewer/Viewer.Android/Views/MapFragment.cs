@@ -44,7 +44,7 @@ namespace Viewer.Droid.Views
             return view;
         }
 
-        public MapFragment()
+        public MapFragment(double latitude, double longtitude, string title, string description)
         {
             this.WhenActivated(disposable =>
             {
@@ -54,6 +54,7 @@ namespace Viewer.Droid.Views
                 .ObserveOn(RxApp.MainThreadScheduler)
                 .Subscribe(data =>
                 {
+                    
                     foreach (var parking in data.Item1)
                     {
                         data.Item2.AddMarker(new MarkerOptions()
@@ -62,7 +63,24 @@ namespace Viewer.Droid.Views
                             .SetSnippet(parking.Location));
                         System.Diagnostics.Debug.WriteLine(parking.Id);
                     }
+
+                    var marker = data.Item2.AddMarker(new MarkerOptions()
+                   .SetPosition(new LatLng(latitude, longtitude))
+                   .SetTitle(title)
+                   .SetIcon(BitmapDescriptorFactory.FromResource(Resource.Drawable.@event))
+                   .SetSnippet(description));
+
+                    var location = new LatLng(latitude, longtitude);
+                    var builder = CameraPosition.InvokeBuilder();
+                    builder.Target(location);
+                    builder.Zoom(12);
+                    var cameraPosition = builder.Build();
+                    var cameraUpdate = CameraUpdateFactory.NewCameraPosition(cameraPosition);
+                    _googleMap.MoveCamera(cameraUpdate);
+
                 }).DisposeWith(disposable);
+
+                
                
             });
         }
