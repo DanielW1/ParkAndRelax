@@ -27,12 +27,15 @@ for x in range(0,3):
         print("DATA: " + originaldate_UTF)
         listdates.append(originaldate_UTF)
 
-        originalname_ISO = (container.find_all("h2", {"itemprop": "name"})[0].text).strip()
-        [line for line in originalname_ISO.split("\n") if line.strip() != '']
-        originalname_UTF = originalname_ISO.encode("iso-8859-2",'ignore').decode('utf-8')
-        print("NAZWA: " + originalname_UTF)
-        listnames.append(originalname_UTF)
-
+        try:
+            originalname_ISO = (container.find_all("h2", {"itemprop": "name"})[0].text).strip()
+            [line for line in originalname_ISO.split("\n") if line.strip() != '']
+            originalname_UTF = originalname_ISO.encode("iso-8859-2",'ignore').decode('utf-8')
+            print("NAZWA: " + originalname_UTF)
+            listnames.append(originalname_UTF)
+        except UnicodeDecodeError:
+            b'\0xc4'.decode('utf-8', "replace")
+            listnames.append('Błąd przy dekodowaniu')
         #strip eliminuje spacje przed i po stringu
 
         originalcategory_ISO = (container.find_all("li", {"class": "category"})[0].text).strip()
@@ -72,12 +75,13 @@ for x in range(0,3):
         try:
             originalinfo_ISO = (container.find_all("div", {"class": "eventDescription"})[0].text).strip()
             originalinfo_UTF = originalinfo_ISO.encode("iso-8859-2",'ignore').decode('utf-8')
-            if "\"" in originalinfo_UTF:
-                new_originalinfo_UTF = originalinfo_UTF.replace("\""," ")
+
+            if "\'" in originalinfo_UTF:
+                new_originalinfo_UTF = originalinfo_UTF.replace("\'"," ")
                 listinfos.append(new_originalinfo_UTF)
                 print("Informacje: " + new_originalinfo_UTF)
-            elif "\'" in originalinfo_UTF:
-                new_originalinfo_UTF = originalinfo_UTF.replace("\'"," ")
+            elif "\"" in originalinfo_UTF:
+                new_originalinfo_UTF = originalinfo_UTF.replace("\"", " ")
                 listinfos.append(new_originalinfo_UTF)
                 print("Informacje: " + new_originalinfo_UTF)
             else:
@@ -141,13 +145,15 @@ for container2 in events2:
     else:
         listprices.append(originalprice_2)
 
-    #print("Informacje: " + (container2.find_all("div", {"class": "event_desc"})[0].text).strip())
-    #info = (container2.find_all("div", {"class": "event_desc"})[0].text).strip()
+
     info_2 = container2.find('div', attrs={'class':'event_desc'}).text
     info2 = " ".join(re.split("\s+", info_2, flags=re.UNICODE))
     info3 = info2 + "\n"
     if "\'" in info2:
         new_info2 = info2.replace("\'", " ")
+        listinfos.append(new_info2)
+    elif "\"" in info2:
+        new_info2 = info2.replace("\"", " ")
         listinfos.append(new_info2)
     else:
         listinfos.append(info2)
