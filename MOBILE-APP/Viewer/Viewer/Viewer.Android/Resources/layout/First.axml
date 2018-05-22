@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:minWidth="25px"
     android:minHeight="25px"
-    android:background="#ff0000">
+    android:background="#44d9e6">
     <Button
         android:text="Wydarzenie"
         android:layout_width="wrap_content"

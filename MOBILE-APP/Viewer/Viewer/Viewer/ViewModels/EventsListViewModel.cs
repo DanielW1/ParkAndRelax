@@ -4,11 +4,7 @@ using System.Text;
 
 namespace Viewer.ViewModels
 {
-    class DataViewModel : ReactiveViewModel
+    public class EventsListViewModel
     {
-        public DataViewModel()
-        {
-
-        }
     }
 }

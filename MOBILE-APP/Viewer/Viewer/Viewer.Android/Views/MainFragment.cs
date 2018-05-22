@@ -15,22 +15,34 @@ namespace Viewer.Droid.Views
 {
     public class MainFragment:ReactiveUI.AndroidSupport.ReactiveFragment<MainViewModel>
     {
-        Button _concertButton;
-        Button lectureButton;
+        Button _dateButton;
+        Button _eventButton;
         public MainFragment()
         {
             this.WhenActivated(disposable =>
             {
-                ViewModel.SwitchToMap.Subscribe(MapViewModel =>
+                ViewModel.SwitchToDate.Subscribe(dateViewModel =>
                 {
 
-                    var mapFragment = new MapFragment(52.2162198, 21.0144244, "Polska dla Polaków","Tutaj można wszystko")
+                    var dateFragment = new DateFragment()
                     {
-                        ViewModel = MapViewModel
+                        ViewModel = dateViewModel
                     };
-                    Activity.NextFragment(Resource.Id.frame, mapFragment);
+                    Activity.NextFragment(Resource.Id.frame, dateFragment);
                 });
-                _concertButton.Events().Click.Select(_ => Unit.Default).InvokeCommand(this, x => x.ViewModel.SwitchToMap);
+
+                ViewModel.SwitchToEvent.Subscribe(eventViewModel =>
+                {
+
+                    var eventFragment = new EventFragment()
+                    {
+                        ViewModel = eventViewModel
+                    };
+                    Activity.NextFragment(Resource.Id.frame, eventFragment);
+                });
+
+                _eventButton.Events().Click.Select(_ => Unit.Default).InvokeCommand(this, x => x.ViewModel.SwitchToEvent);
+                _dateButton.Events().Click.Select(_ => Unit.Default).InvokeCommand(this, x => x.ViewModel.SwitchToDate);
             });
            
         }
@@ -39,10 +51,11 @@ namespace Viewer.Droid.Views
             base.OnCreateView(inflater, container, savedInstanceState);
 
             var view = inflater.Inflate(Resource.Layout.fragment_main, container, false);
-            _concertButton = view.FindViewById<Button>(Resource.Id.concertButton);
+            _eventButton = view.FindViewById<Button>(Resource.Id.eventButton);
+            _dateButton = view.FindViewById<Button>(Resource.Id.dateButton);
+
             return view;
 
-            lectureButton = view.F
         }
 
        

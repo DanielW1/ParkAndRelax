@@ -88,6 +88,9 @@
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\DateFragment.cs" />
+    <Compile Include="Views\EventFragment.cs" />
+    <Compile Include="Views\EventsListFragment.cs" />
     <Compile Include="Views\MainFragment.cs" />
     <Compile Include="Views\MapFragment.cs" />
   </ItemGroup>
