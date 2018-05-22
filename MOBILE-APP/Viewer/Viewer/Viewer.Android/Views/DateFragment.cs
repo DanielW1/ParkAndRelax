@@ -32,12 +32,8 @@ namespace Viewer.Droid.Views
 
             
             _dateButton = view.FindViewById<Button>(Resource.Id.dateButton);
-            _timeButton = view.FindViewById<Button>(Resource.Id);
+            _timeButton = view.FindViewById<Button>(Resource.Id.timeButton);
             _chooseButton = view.FindViewById<Button>(Resource.Id.chooseButton);
-
-
-
-
 
             _dateButton.Click += delegate
             {

@@ -23,7 +23,6 @@ namespace Viewer.Droid.Views
             {
                 ViewModel.SwitchToDate.Subscribe(dateViewModel =>
                 {
-
                     var dateFragment = new DateFragment()
                     {
                         ViewModel = dateViewModel
@@ -33,7 +32,6 @@ namespace Viewer.Droid.Views
 
                 ViewModel.SwitchToEvent.Subscribe(eventViewModel =>
                 {
-
                     var eventFragment = new EventFragment()
                     {
                         ViewModel = eventViewModel
@@ -50,7 +48,7 @@ namespace Viewer.Droid.Views
         {
             base.OnCreateView(inflater, container, savedInstanceState);
 
-            var view = inflater.Inflate(Resource.Layout.fragment_main, container, false);
+            var view = inflater.Inflate(Resource.Layout.First, container, false);
             _eventButton = view.FindViewById<Button>(Resource.Id.eventButton);
             _dateButton = view.FindViewById<Button>(Resource.Id.dateButton);
 

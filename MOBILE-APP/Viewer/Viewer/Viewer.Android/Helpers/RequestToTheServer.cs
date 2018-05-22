@@ -14,7 +14,7 @@ namespace Viewer.Droid.Helpers
 {
     class RequestToTheServer
     {
-
+/*
         protected async override void SendRequest()
         {
            
@@ -30,6 +30,6 @@ namespace Viewer.Droid.Helpers
 
             });
 
-        }
+        }*/
     }
 }

@@ -11,25 +11,17 @@ namespace Viewer.ViewModels
     {
         public MainViewModel()
         {
-            SwitchToMap = ReactiveCommand.Create<Unit, MapViewModel>(_ => new MapViewModel());
+            
             this.WhenActivated((CompositeDisposable disposable) =>
             {
 
             });
-
-            SwitchToMap = ReactiveCommand.Create<Unit, MapViewModel>(_ => new MapViewModel());
-            this.WhenActivated((CompositeDisposable disposable) =>
-            {
-
-            });
-
-            SwitchToMap = ReactiveCommand.Create<Unit, MapViewModel>(_ => new MapViewModel());
-            this.WhenActivated((CompositeDisposable disposable) =>
-            {
-
-            });
+            SwitchToDate = ReactiveCommand.Create<Unit, DateViewModel>(_ => new DateViewModel());
+            SwitchToEvent = ReactiveCommand.Create<Unit, EventViewModel>(_ => new EventViewModel());
+           
+          
         }
-        public ReactiveCommand<Unit,MapViewModel> SwitchToMap { get; }
+
         public ReactiveCommand<Unit,EventViewModel> SwitchToEvent { get; }
         public ReactiveCommand<Unit,DateViewModel> SwitchToDate { get; }
     }
