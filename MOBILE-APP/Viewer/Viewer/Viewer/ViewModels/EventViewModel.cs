@@ -8,14 +8,15 @@ namespace Viewer.ViewModels
     {
         public EventViewModel()
         {
-          this.WhenActivated((CompositeDisposable disposable) =>
+            this.WhenActivated((CompositeDisposable disposable) =>
             {
 
             });
-            SwitchToEventsList = ReactiveCommand.Create<Unit, EventsListViewModel>(_ => new EventsListViewModel());
+                  SwitchToEventsList = ReactiveCommand.Create<Unit, EventsListViewModel>(_ => new EventsListViewModel());
+
         }
 
-        public ReactiveCommand<Unit, EventsListViewModel> SwitchToEventsList{ get; }
+        public ReactiveCommand <Unit, EventsListViewModel> SwitchToEventsList { get; private set; }
 
     }
 }

@@ -84,7 +84,6 @@
     <Compile Include="BootstrapperDroid.cs" />
     <Compile Include="Helpers\NavigateToFragment.cs" />
     <Compile Include="Helpers\ReadFileFromAssets.cs" />
-    <Compile Include="Helpers\RequestToTheServer.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -104,10 +103,16 @@
     <AndroidResource Include="Resources\layout\First.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\fragment_main.axml">
+    <AndroidResource Include="Resources\layout\fragment_event.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\fragment_date.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\fragment_eventsList.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\Main.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

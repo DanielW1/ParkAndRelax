@@ -1,6 +1,5 @@
 ﻿using ReactiveUI;
 using System.Reactive;
-using System.Reactive.Disposables;
 
 namespace Viewer.ViewModels
 {
@@ -8,16 +7,10 @@ namespace Viewer.ViewModels
     {
         public DateViewModel()
         {
-            this.WhenActivated((CompositeDisposable disposable) =>
-            {
-
-            });
-            SwitchToEventsList = ReactiveCommand.Create<Unit, EventsListViewModel>(_ => new EventsListViewModel());
+                SwitchToEventsListFromEvent = ReactiveCommand.Create<Unit, EventsListViewModel>(_ => new EventsListViewModel());
         }
 
-        public ReactiveCommand<Unit, EventsListViewModel> SwitchToEventsList { get; }
-        
-
+        public ReactiveCommand<Unit, EventsListViewModel> SwitchToEventsListFromEvent { get; private set; }
         
     }
 }

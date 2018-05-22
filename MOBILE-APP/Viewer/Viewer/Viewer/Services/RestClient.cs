@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Viewer.Services
 {
-    class RestClient
+    public class RestClient
     {
         public async Task<T> Get<T>(string url)
         {
@@ -19,7 +19,6 @@ namespace Viewer.Services
                 {
                     var jsonstring = await response.Content.ReadAsStringAsync();
                     return Newtonsoft.Json.JsonConvert.DeserializeObject<T>(jsonstring);
-
 
                 }
 

@@ -8,13 +8,14 @@ namespace Viewer.ViewModels
     {
         public EventsListViewModel()
         {
+   
             this.WhenActivated((CompositeDisposable disposable) =>
             {
-
+                SwitchToMap = ReactiveCommand.Create<Unit, MapViewModel>(_ => new MapViewModel());
             });
-            SwitchToMap = ReactiveCommand.Create<Unit, MapViewModel>(_ => new MapViewModel());
+           
         }
 
-        public ReactiveCommand<Unit, MapViewModel> SwitchToMap { get; }
+        public ReactiveCommand<Unit, MapViewModel> SwitchToMap { get; private set; }
     }
 }

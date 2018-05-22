@@ -1,6 +1,5 @@
 ﻿using ReactiveUI;
 
-
 namespace Viewer.ViewModels
 {
     public abstract class ReactiveViewModel : ReactiveObject, ISupportsActivation

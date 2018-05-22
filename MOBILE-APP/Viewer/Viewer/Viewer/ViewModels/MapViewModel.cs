@@ -21,12 +21,11 @@ namespace Viewer.ViewModels
         private EventOnMapModel _eventOnMapModel;
         public EventOnMapModel EventOnMapModel {
             get => _eventOnMapModel;
-            set => this.RaiseAndSetIfChanged(ref _eventOnMapModel, value)
-                ;
+            set => this.RaiseAndSetIfChanged(ref _eventOnMapModel, value);
+
         }
         public MapViewModel()
         {
-
             this.WhenActivated(disposable=>
             {
                 IConvertingjsonService service = Locator.CurrentMutable.GetService<IConvertingjsonService>();

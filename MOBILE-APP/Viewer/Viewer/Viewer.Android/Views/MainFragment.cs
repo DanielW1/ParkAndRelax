@@ -2,9 +2,8 @@
 using System.Reactive;
 using System.Reactive.Disposables;
 using System.Reactive.Linq;
+using Android.App;
 using ReactiveUI;
-using Splat;
-using Viewer.Services;
 using Android.OS;
 using Android.Views;
 using System;
@@ -21,29 +20,28 @@ namespace Viewer.Droid.Views
         {
             this.WhenActivated(disposable =>
             {
+              ViewModel.SwitchToEvent.Subscribe(eventViewModel =>
+                {
+                    var eventFragment = new EventFragment { ViewModel = eventViewModel };
+                    Activity.NextFragment(Resource.Id.frame, eventFragment);
+                }
+              ).DisposeWith(disposable);
+
                 ViewModel.SwitchToDate.Subscribe(dateViewModel =>
                 {
-                    var dateFragment = new DateFragment()
-                    {
-                        ViewModel = dateViewModel
-                    };
+                   
+                    var dateFragment = new DateFragment { ViewModel = dateViewModel };
                     Activity.NextFragment(Resource.Id.frame, dateFragment);
-                });
+                }
+                ).DisposeWith(disposable);
 
-                ViewModel.SwitchToEvent.Subscribe(eventViewModel =>
-                {
-                    var eventFragment = new EventFragment()
-                    {
-                        ViewModel = eventViewModel
-                    };
-                    Activity.NextFragment(Resource.Id.frame, eventFragment);
-                });
 
-                _eventButton.Events().Click.Select(_ => Unit.Default).InvokeCommand(this, x => x.ViewModel.SwitchToEvent);
-                _dateButton.Events().Click.Select(_ => Unit.Default).InvokeCommand(this, x => x.ViewModel.SwitchToDate);
+                _eventButton.Events().Click.Select(_ => Unit.Default).InvokeCommand(this, x => x.ViewModel.SwitchToEvent).DisposeWith(disposable);
+                _dateButton.Events().Click.Select(_ => Unit.Default).InvokeCommand(this, x => x.ViewModel.SwitchToDate).DisposeWith(disposable);
             });
            
         }
+
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             base.OnCreateView(inflater, container, savedInstanceState);
