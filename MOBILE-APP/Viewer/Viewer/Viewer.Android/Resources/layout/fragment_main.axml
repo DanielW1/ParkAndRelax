@@ -6,43 +6,43 @@
     android:minWidth="25px"
     android:minHeight="25px"
     android:background="#ff0000">
-  <Button
-      android:text="Koncert"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_centerHorizontal="true"
-      android:layout_centerVertical="true"
-      android:id="@+id/concertButton" />
-  <Button
-      android:text="Wykład"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_centerHorizontal="true"
-      android:layout_centerVertical="true"
-      android:layout_below="@id/concertButton"
-      android:id="@+id/lectureButton" />
-  <Button
-      android:text="Spotkanie"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_centerHorizontal="true"
-      android:layout_centerVertical="true"
-      android:layout_below="@+id/lectureButton"
-      android:id="@+id/meetingButton" />
-  <Button
-     android:text="Teatr"
-     android:layout_width="wrap_content"
-     android:layout_height="wrap_content"
-     android:layout_centerHorizontal="true"
-     android:layout_centerVertical="true"
-     android:layout_below="@+id/meetingButton"
-     android:id="@+id/theatreButton" />
-  <Button
-     android:text="Orkiestra"
-     android:layout_width="wrap_content"
-     android:layout_height="wrap_content"
-     android:layout_centerHorizontal="true"
-     android:layout_centerVertical="true"
-     android:layout_above="@+id/concertButton"
-     android:id="@+id/orchestraButton" />
+    <Button
+        android:text="Koncert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:id="@+id/concertButton" />
+    <Button
+        android:text="Wykład"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_below="@id/concertButton"
+        android:id="@+id/lectureButton" />
+    <Button
+        android:text="Spotkanie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_below="@+id/lectureButton"
+        android:id="@+id/meetingButton" />
+    <Button
+        android:text="Teatr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_below="@+id/meetingButton"
+        android:id="@+id/theatreButton" />
+    <Button
+        android:text="Orkiestra"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_above="@+id/concertButton"
+        android:id="@+id/orchestraButton" />
 </RelativeLayout>

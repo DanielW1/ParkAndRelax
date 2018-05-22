@@ -17,18 +17,32 @@ namespace Viewer.ViewModels
             get => _parkAndRides;
             set => this.RaiseAndSetIfChanged(ref _parkAndRides, value);
         }
+
+        private EventOnMapModel _eventOnMapModel;
+        public EventOnMapModel EventOnMapModel {
+            get => _eventOnMapModel;
+            set => this.RaiseAndSetIfChanged(ref _eventOnMapModel, value)
+                ;
+        }
         public MapViewModel()
         {
 
             this.WhenActivated(disposable=>
             {
                 IConvertingjsonService service = Locator.CurrentMutable.GetService<IConvertingjsonService>();
+                IGeoLocationService geoservice = Locator.CurrentMutable.GetService<IGeoLocationService>();
 
-                Observable.FromAsync(_ => service.GetAllParkings()).Subscribe(parkingList =>
+                Observable.FromAsync(_ => service.GetAllParkings())
+                .Select(async parkings =>
                 {
-                    ParkandRides = parkingList;
-                }).DisposeWith(disposable);
-
+                    ParkandRides = parkings;
+                    var eventLatLng = await geoservice.GetLatitudeandLongtitude("Riviera");
+                    EventOnMapModel.Latitude = eventLatLng.latitude;
+                    EventOnMapModel.Longtitude = eventLatLng.longtitude;
+                    System.Diagnostics.Debug.WriteLine("Latitude" + eventLatLng.latitude.ToString());
+                })
+                .Subscribe()
+                .DisposeWith(disposable);
             });
         }
     }

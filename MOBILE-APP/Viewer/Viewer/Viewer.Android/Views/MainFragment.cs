@@ -16,6 +16,7 @@ namespace Viewer.Droid.Views
     public class MainFragment:ReactiveUI.AndroidSupport.ReactiveFragment<MainViewModel>
     {
         Button _concertButton;
+        Button lectureButton;
         public MainFragment()
         {
             this.WhenActivated(disposable =>
@@ -40,6 +41,10 @@ namespace Viewer.Droid.Views
             var view = inflater.Inflate(Resource.Layout.fragment_main, container, false);
             _concertButton = view.FindViewById<Button>(Resource.Id.concertButton);
             return view;
+
+            lectureButton = view.F
         }
+
+       
     }
 }

@@ -3,15 +3,17 @@ using Android.Gms.Maps;
 using Android.OS;
 using Android.Views;
 using ReactiveUI;
-using Viewer.Models;
 using Viewer.ViewModels;
 using Android.Gms.Maps.Model;
 using System.Reactive.Linq;
 using System;
 using System.Collections.Generic;
-using Splat;
-using Viewer.Services;
 using System.Reactive.Disposables;
+using Android.Locations;
+using Android.Content;
+using System.Threading;
+using System.Linq;
+using System.IO;
 
 namespace Viewer.Droid.Views
 {
@@ -48,7 +50,6 @@ namespace Viewer.Droid.Views
         {
             this.WhenActivated(disposable =>
             {
-
                 this.WhenAnyValue(z => z.ViewModel.ParkandRides, z=> z.GoogleMap)
                 .Where(z => z.Item1?.Count > 0 && z.Item2 != null)
                 .ObserveOn(RxApp.MainThreadScheduler)
@@ -89,5 +90,9 @@ namespace Viewer.Droid.Views
         {
             GoogleMap = googleMap;
         }
+
+        
+
+       
     }
 }
