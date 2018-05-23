@@ -1,12 +1,13 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using ParkAndRide_REST.Models;
 
-namespace ParkAndRide_REST.Models
+namespace ParkAndRide_REST.Context
 {
     public partial class PARK_AND_RELAXContext : DbContext
     {
-        public virtual DbSet<Event> Event { get; set; }
+      /*  public virtual DbSet<string> Event { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -19,7 +20,7 @@ namespace ParkAndRide_REST.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Event>(entity =>
+            modelBuilder.Entity<string>(entity =>
             {
                 entity.ToTable("EVENT");
 
@@ -60,6 +61,6 @@ namespace ParkAndRide_REST.Models
                     .HasMaxLength(50)
                     .IsUnicode(false);
             });
-        }
+        }*/
     }
 }
