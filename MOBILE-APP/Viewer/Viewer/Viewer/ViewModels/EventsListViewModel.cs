@@ -19,14 +19,11 @@ namespace Viewer.ViewModels
             get => _eventsList;
             set => this.RaiseAndSetIfChanged(ref _eventsList, value);
         }
-
+        IGeoLocationService reqservice = Locator.CurrentMutable.GetService<IGeoLocationService>();
         public EventsListViewModel()
         {
             this.WhenActivated((CompositeDisposable disposable) =>
             {
-                
-
-                IGeoLocationService reqservice = Locator.CurrentMutable.GetService<IGeoLocationService>();
 
                 Observable.FromAsync(_ => reqservice.Get()).Subscribe(listofevents =>
                 {

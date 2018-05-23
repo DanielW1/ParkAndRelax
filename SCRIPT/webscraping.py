@@ -1,7 +1,7 @@
 import re
 from urllib.request import urlopen as uReq
 from bs4 import BeautifulSoup as soup
-import pypyodbc as pyodbc
+import  pyodbc
 
 listdates = []
 listnames = []
@@ -180,11 +180,11 @@ for container2 in events2:
 
 i=1;
 
-cnxn = pyodbc.connect('Driver={SQL Server};Server=LAPTOP-3HJ4DJM0\SQLEXPRESS;Database=Test-Inzynierka;Trusted_Connection=yes;')
+cnxn = pyodbc.connect('Driver={ODBC Driver 13 for SQL Server};Server=tcp:parkandrelax.database.windows.net,1433;Database=parkandrelax;Uid=daniel@parkandrelax;Pwd=parkandrelax1_;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;')
 cursor = cnxn.cursor()
-cursor.execute("DELETE FROM [EVENTS]")
+cursor.execute("DELETE FROM [EVENT]")
 cnxn.commit()
 for name, date, place, price, category, info in zip(listnames, listdates, listplaces, listprices, listcategories, listinfos):
-    cursor.execute("INSERT INTO [EVENTS] VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}');".format(i, name, date, place,  price, category, info))
+    cursor.execute("INSERT INTO [EVENT] VALUES ('{0}','{1}','{2}','{3}','{4}','{5}');".format(name, date, place,  price, category, info))
     cnxn.commit()
     i = i+1

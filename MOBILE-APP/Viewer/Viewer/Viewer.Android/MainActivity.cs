@@ -34,23 +34,7 @@ namespace Viewer.Droid
             var mainFragment = new MainFragment(){ ViewModel = new MainViewModel()};
             this.NextFragment(Resource.Id.frame, mainFragment);
             
-            /*var list = FindViewById<ListView>(Resource.Id.listView);
-            List<Event> lstsource = new List<Event>();
-            for (int i = 0; i < 5; i++)
-            {
-                Event evencik = new Event()
-                {
-                    Id = i,
-                    Name = "James" + i,
-                    Date = "23.05.12" + i,
-                    Place = "Warszawa" + i,
-                    Price = "12 zł" + i,
-                    Category = "POP" + i
-                };
-                lstsource.Add(evencik);
-            }
-
-            list.Adapter = new CustomAdapter(this, lstsource);*/
+           
         }
     }
 }

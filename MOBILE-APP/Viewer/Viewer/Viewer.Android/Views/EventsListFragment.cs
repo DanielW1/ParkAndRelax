@@ -37,7 +37,7 @@ namespace Viewer.Droid.Views
         {
             var view = inflater.Inflate(Resource.Layout.fragment_eventsList,container, false);
 
-            var list = view.FindViewById<ListView>(Resource.Id.listView);
+            //var list = view.FindViewById<ListView>(Resource.Id.listView);
             List<Event> lstsource = new List<Event>();
             for(int i = 0; i<5; i++)
             {
@@ -53,7 +53,7 @@ namespace Viewer.Droid.Views
                 lstsource.Add(evencik);
             }
           
-            list.Adapter = new CustomAdapter(Application.Context, lstsource);
+            //list.Adapter = new CustomAdapter(Application.Context, lstsource);
 
             return View;
         }

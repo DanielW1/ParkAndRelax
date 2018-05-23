@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Flurl;
 using Flurl.Util;
@@ -15,11 +16,13 @@ namespace Viewer.Services
     {
         Task <(double latitude, double longtitude)> GetLatitudeandLongtitude(string locationName);
         Task <List<Event>> Get();
+
     }
     public class GeoLocationService : IGeoLocationService
     {
         private readonly IRequestService _requestService = Locator.CurrentMutable.GetService<IRequestService>();
         private List<Event> _events;
+        private readonly HttpClient _httpClient = new HttpClient();
         public async Task<(double latitude, double longtitude)> GetLatitudeandLongtitude(string locationName)
         {
             double latitude = 0;
@@ -35,19 +38,11 @@ namespace Viewer.Services
         {
             try
             {
-                var response = await _requestService.GetAsync("fsdgdgd");
-                if (response.StatusCode == HttpStatusCode.OK)
-                {
-                    var jsonstring = await response.Content.ReadAsStringAsync();
-                    using (StreamReader streamReader = new StreamReader(jsonstring))
-                    {
-                        _events = JsonConvert.DeserializeObject<List<Event>>(await streamReader.ReadToEndAsync(), new JsonSerializerSettings
-                        {
-                            TypeNameHandling = TypeNameHandling.All
-                        });
-                    }
+                var response = await _httpClient.GetStringAsync("https://parkandriderest.azurewebsites.net/Events/search?category=Koncerty");
+
+                _events = JsonConvert.DeserializeObject<List<Event>>(response);
+
                     return _events;
-                }
             }
             catch(Exception e)
             {

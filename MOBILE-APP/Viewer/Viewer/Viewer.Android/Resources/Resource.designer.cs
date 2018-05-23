@@ -3534,9 +3534,6 @@ namespace Viewer.Droid
 			// aapt resource value: 0x7f0c001c
 			public const int listMode = 2131492892;
 			
-			// aapt resource value: 0x7f0c0096
-			public const int listView = 2131493014;
-			
 			// aapt resource value: 0x7f0c0052
 			public const int list_item = 2131492946;
 			
@@ -3689,6 +3686,9 @@ namespace Viewer.Droid
 			
 			// aapt resource value: 0x7f0c0067
 			public const int radio = 2131492967;
+			
+			// aapt resource value: 0x7f0c0096
+			public const int recyclerView = 2131493014;
 			
 			// aapt resource value: 0x7f0c003f
 			public const int right = 2131492927;

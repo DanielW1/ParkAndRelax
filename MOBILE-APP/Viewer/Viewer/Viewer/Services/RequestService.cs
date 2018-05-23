@@ -10,8 +10,7 @@ namespace Viewer.Services
     public interface IRequestService
     {
         Task<string> HttpRequest(string url);
-        Task <HttpResponseMessage> GetAsync(string url);
-    }
+    }    
     public class RequestService : IRequestService
     {
         private readonly HttpClient _httpClient;
@@ -24,11 +23,6 @@ namespace Viewer.Services
         public async Task<string> HttpRequest(string stringUri)
         {
             return await _httpClient.GetStringAsync(new Uri(stringUri));
-        }
-
-        public async Task<HttpResponseMessage> GetAsync(string stringUri)
-        {
-            return await _httpClient.GetAsync(new Uri(stringUri));
         }
     }
 }
