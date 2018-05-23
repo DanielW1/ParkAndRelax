@@ -35,7 +35,7 @@ namespace Viewer.Droid.Views
             {
                 ViewModel.SwitchToEventsList.Subscribe(EventsListViewModel =>
                 {
-                    var eventListFragment = new EventsListFragment(C) { ViewModel = EventsListViewModel };
+                    var eventListFragment = new EventsListFragment() { ViewModel = EventsListViewModel };
                     Activity.NextFragment(Resource.Id.frame, eventListFragment);
                 }
                 ).DisposeWith(disposable);
