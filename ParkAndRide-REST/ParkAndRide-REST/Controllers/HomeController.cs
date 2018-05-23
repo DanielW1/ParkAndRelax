@@ -12,12 +12,9 @@ namespace ParkAndRide_REST.Controllers
 {
     public class HomeController : Controller
     {
-        public string[] Index()
+        public IActionResult Index()
         {
-            
-            
-         
-            return new string[] { "ime", "nazwisko" };
+            return View();                    
         }
 
         public IActionResult About()
