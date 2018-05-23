@@ -16,7 +16,7 @@ namespace Viewer.Droid.Views
 {
     public class EventsListFragment : ReactiveUI.AndroidSupport.ReactiveFragment<EventsListViewModel>
     {
-        public EventsListFragment(string category)
+        public EventsListFragment()
         {
             this.WhenActivated(disposable =>
             {/*

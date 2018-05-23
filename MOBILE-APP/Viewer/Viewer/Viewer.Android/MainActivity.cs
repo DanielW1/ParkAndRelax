@@ -36,5 +36,20 @@ namespace Viewer.Droid
             
            
         }
+
+        public override void OnBackPressed()
+        {
+             if(SupportFragmentManager.BackStackEntryCount == 1)
+            {
+                Finish();
+            }
+            else
+            {
+                if(SupportFragmentManager.BackStackEntryCount > 1)
+                {
+                    SupportFragmentManager.PopBackStackImmediate();
+                }
+            }
+        }
     }
 }

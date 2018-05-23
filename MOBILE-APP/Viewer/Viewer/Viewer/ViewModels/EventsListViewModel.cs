@@ -24,7 +24,6 @@ namespace Viewer.ViewModels
         {
             this.WhenActivated((CompositeDisposable disposable) =>
             {
-
                 Observable.FromAsync(_ => reqservice.Get()).Subscribe(listofevents =>
                 {
                     EventsList = listofevents;

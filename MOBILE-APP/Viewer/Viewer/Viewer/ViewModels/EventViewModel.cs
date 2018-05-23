@@ -2,6 +2,7 @@
 using System.Reactive;
 using System.Reactive.Disposables;
 
+
 namespace Viewer.ViewModels
 {
     public class EventViewModel : ReactiveViewModel
@@ -15,7 +16,7 @@ namespace Viewer.ViewModels
                   SwitchToEventsList = ReactiveCommand.Create<Unit, EventsListViewModel>(_ => new EventsListViewModel());
 
         }
-
+        
         public ReactiveCommand <Unit, EventsListViewModel> SwitchToEventsList { get; private set; }
 
     }

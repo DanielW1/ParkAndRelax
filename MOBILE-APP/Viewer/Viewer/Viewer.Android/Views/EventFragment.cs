@@ -20,8 +20,14 @@ namespace Viewer.Droid.Views
         Button _theatreButton;
         Button _orchestraButton;
         Button _meetingButton;
+        private string concert = "Koncert";
+        private string orchestra = "Orkiestra";
+        private string meeting = "Spotkanie";
+        private string theatre = "Teatr";
+        private string lecture = "Wykład";
 
-        public string category { get; set; }
+        public string Category { get; set; }
+     
         public EventFragment()
         {
 
@@ -29,20 +35,21 @@ namespace Viewer.Droid.Views
             {
                 ViewModel.SwitchToEventsList.Subscribe(EventsListViewModel =>
                 {
-                    var eventListFragment = new EventsListFragment("Koncert") { ViewModel = EventsListViewModel };
+                    var eventListFragment = new EventsListFragment(C) { ViewModel = EventsListViewModel };
                     Activity.NextFragment(Resource.Id.frame, eventListFragment);
                 }
                 ).DisposeWith(disposable);
 
-                _lectureButton.Events().Click.Select(_ => Unit.Default).InvokeCommand(this, x => x.ViewModel.SwitchToEventsList);
-                _concertButton.Events().Click.Select(_ => Unit.Default).InvokeCommand(this, x => x.ViewModel.SwitchToEventsList);
-                _theatreButton.Events().Click.Select(_ => Unit.Default).InvokeCommand(this, x => x.ViewModel.SwitchToEventsList);
-                _orchestraButton.Events().Click.Select(_ => Unit.Default).InvokeCommand(this, x => x.ViewModel.SwitchToEventsList);
-                _meetingButton.Events().Click.Select(_ => Unit.Default).InvokeCommand(this, x => x.ViewModel.SwitchToEventsList);
+                _lectureButton.Events().Click.Select(_ => SetCategory(lecture)).InvokeCommand(this,
+                    x => x.ViewModel.SwitchToEventsList).DisposeWith(disposable);
 
-                //_lectureButton.Events().Click.Subscribe(result => restClient.Get<Event>("http://localhost:644988/Events/search?name=moje")
+                _concertButton.Events().Click.Select(x => SetCategory(concert)).InvokeCommand(this, x => x.ViewModel.SwitchToEventsList).DisposeWith(disposable);
+                _theatreButton.Events().Click.Select(x => SetCategory(theatre)).InvokeCommand(this, x => x.ViewModel.SwitchToEventsList).DisposeWith(disposable);
+                _orchestraButton.Events().Click.Select(x => SetCategory(orchestra)).InvokeCommand(this, x => x.ViewModel.SwitchToEventsList).DisposeWith(disposable);
+                _meetingButton.Events().Click.Select(x => SetCategory(meeting)).InvokeCommand(this, x => x.ViewModel.SwitchToEventsList).DisposeWith(disposable);
+                _meetingButton.Events().Click.Select(x => SetCategory(meeting)).InvokeCommand(this, x => x.ViewModel.SwitchToEventsList).DisposeWith(disposable);
 
-                //).DisposeWith(disposable);
+                
             });
         }
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -60,10 +67,31 @@ namespace Viewer.Droid.Views
             return view;
         }
 
-        /*public async override void SendRequest()
+       private string SetCategory(String category)
         {
-            var result = await client.Get
-        }*/
+            if (category == "Koncert")
+            {
+                Category = "Koncert";
+            }
+            else if (category == "Wykład")
+            {
+                Category = "Wykład";
+            }
+            else if (category == "Orkiestra")
+            {
+                Category = "Orkiestra";
+            }
+            else if (category == "Spotkanie")
+            {
+                Category = "Spotkanie";
+            }
+            else if(category == "Teatr")
+            {
+                Category = "Teatr";
+            }
+
+            return Category;
+        }
     }
 
 
