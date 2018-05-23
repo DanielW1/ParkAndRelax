@@ -1,7 +1,7 @@
 import re
 from urllib.request import urlopen as uReq
 from bs4 import BeautifulSoup as soup
-import pyodbc
+import pypyodbc as pyodbc
 
 listdates = []
 listnames = []
@@ -41,12 +41,21 @@ for x in range(0,3):
         originalcategory_ISO = (container.find_all("li", {"class": "category"})[0].text).strip()
         originalcategory_UTF = originalcategory_ISO.encode("iso-8859-2",'ignore').decode('utf-8')
         print("Kategoria: " +originalcategory_UTF)
-        if "|" in originalcategory_UTF:
-            new_original_category_UTF = originalcategory_UTF.replace("|", "")
-            listcategories.append(new_original_category_UTF)
-        else:
-            listcategories.append(originalcategory_UTF)
-
+        try:
+            if "|" in originalcategory_UTF:
+                new_original_category_UTF = originalcategory_UTF.replace("|", "")
+                listcategories.append(new_original_category_UTF)
+            elif "\'" in originalcategory_UTF:
+                new_original_category_UTF = originalcategory_UTF.replace("\'", "")
+                listcategories.append(new_original_category_UTF)
+            elif "\"" in originalcategory_UTF:
+                new_original_category_UTF = originalcategory_UTF.replace("\"", "")
+                listcategories.append(new_original_category_UTF)
+            else:
+                listcategories.append(originalcategory_UTF)
+        except UnicodeEncodeError:
+            b'\u201e'.decode('utf-8', "replace")
+            listcategories.append("Błąd przy kodowaniu")
         originalplace_ISO = (container.find_all("li", {"class": "location"})[0].text).strip()
         originalplace_UTF = originalplace_ISO.encode("iso-8859-2",'ignore').decode('utf-8')
         if "|" in originalplace_UTF:
@@ -55,7 +64,6 @@ for x in range(0,3):
         else:
             listplaces.append(originalplace_UTF)
 
-        print("Miejsce: " + originalplace_UTF)
 
         originalprice_ISO =  (container.find_all("li", {"class": "tickets"})[0].text).strip()
         originalprice_UTF = originalprice_ISO.encode("iso-8859-2",'ignore').decode('utf-8')
@@ -90,6 +98,8 @@ for x in range(0,3):
         except UnicodeDecodeError:
             b'\0xf3'.decode('utf-8',"replace")
             listinfos.append('Błąd przy dekodowaniu')
+        except UnicodeEncodeError:
+            listinfos.append('Błąd przy kodowaniu')
 
         print("\n")
 
@@ -117,14 +127,18 @@ for container2 in events2:
     listnames.append(originalname_2)
 
     # strip eliminuje spacje przed i po stringu
-    originalcategory_2 = (container2.find_all("a", {"class": "event_category_label_link"})[0].text).strip()
-    print("Kategoria: " + originalcategory_2)
+    try:
+        originalcategory_2 = (container2.find_all("a", {"class": "event_category_label_link"})[0].text).strip()
+        print("Kategoria: " + originalcategory_2)
 
-    if "|" in originalcategory_2:
-        new_original_category_2 = originalcategory_2.replace("|", "")
-        listcategories.append(new_original_category_2)
-    else:
-        listcategories.append(originalcategory_2)
+        if "|" in originalcategory_2:
+            new_original_category_2 = originalcategory_2.replace("|", "")
+            listcategories.append(new_original_category_2)
+        else:
+            listcategories.append(originalcategory_2)
+    except UnicodeEncodeError:
+        b'\u201e'.decode('utf-8', "replace")
+        listcategories.append("Błąd przy kodowaniu")
 
     originaltime_2 = (container2.find_all("p", {"class": "event_info_box_info"})[0].text).strip()
     print("Godzina: " + originaltime_2)

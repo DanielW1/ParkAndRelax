@@ -8,6 +8,8 @@ using Android.Views;
 using System;
 using Android.Widget;
 using Viewer.Droid.Helpers;
+using Viewer.Services;
+using Viewer.Models;
 
 namespace Viewer.Droid.Views
 {
@@ -19,6 +21,7 @@ namespace Viewer.Droid.Views
         Button _orchestraButton;
         Button _meetingButton;
 
+        public string category { get; set; }
         public EventFragment()
         {
 
@@ -26,7 +29,7 @@ namespace Viewer.Droid.Views
             {
                 ViewModel.SwitchToEventsList.Subscribe(EventsListViewModel =>
                 {
-                    var eventListFragment = new EventsListFragment { ViewModel = EventsListViewModel };
+                    var eventListFragment = new EventsListFragment("Koncert") { ViewModel = EventsListViewModel };
                     Activity.NextFragment(Resource.Id.frame, eventListFragment);
                 }
                 ).DisposeWith(disposable);
@@ -36,6 +39,10 @@ namespace Viewer.Droid.Views
                 _theatreButton.Events().Click.Select(_ => Unit.Default).InvokeCommand(this, x => x.ViewModel.SwitchToEventsList);
                 _orchestraButton.Events().Click.Select(_ => Unit.Default).InvokeCommand(this, x => x.ViewModel.SwitchToEventsList);
                 _meetingButton.Events().Click.Select(_ => Unit.Default).InvokeCommand(this, x => x.ViewModel.SwitchToEventsList);
+
+                //_lectureButton.Events().Click.Subscribe(result => restClient.Get<Event>("http://localhost:644988/Events/search?name=moje")
+
+                //).DisposeWith(disposable);
             });
         }
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -53,7 +60,10 @@ namespace Viewer.Droid.Views
             return view;
         }
 
-
+        /*public async override void SendRequest()
+        {
+            var result = await client.Get
+        }*/
     }
 
 

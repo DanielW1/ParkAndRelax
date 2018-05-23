@@ -18,6 +18,9 @@ namespace Viewer.Droid.Views
         Button _dateButton;
         Button _timeButton;
         Button _chooseButton;
+        TextView _time;
+        TextView _date;
+
         public DateFragment()
         {
 
@@ -25,7 +28,7 @@ namespace Viewer.Droid.Views
             {
                 ViewModel.SwitchToEventsListFromEvent.Subscribe(eventslistViewModel =>
                 {
-                    var eventslistFragment = new EventsListFragment { ViewModel = eventslistViewModel };
+                    var eventslistFragment = new EventsListFragment("koncert") { ViewModel = eventslistViewModel };
                     Activity.NextFragment(Resource.Id.frame, eventslistFragment);
                 }
                 ).DisposeWith(disposable);

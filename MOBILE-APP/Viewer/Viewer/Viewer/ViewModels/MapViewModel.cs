@@ -42,6 +42,13 @@ namespace Viewer.ViewModels
                 })
                 .Subscribe()
                 .DisposeWith(disposable);
+
+                Observable.FromAsync(_ => service.GetAllParkings()).Subscribe(parkingList =>
+                {
+                    ParkandRides = parkingList;
+                }).DisposeWith(disposable);
+
+
             });
         }
     }

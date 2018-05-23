@@ -1,4 +1,8 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Net;
+using System.Threading.Tasks;
 using Flurl;
 using Flurl.Util;
 using Newtonsoft.Json;
@@ -9,11 +13,13 @@ namespace Viewer.Services
 {
     public interface IGeoLocationService
     {
-        Task<(double latitude, double longtitude)> GetLatitudeandLongtitude(string locationName);
+        Task <(double latitude, double longtitude)> GetLatitudeandLongtitude(string locationName);
+        Task <List<Event>> Get();
     }
     public class GeoLocationService : IGeoLocationService
     {
         private readonly IRequestService _requestService = Locator.CurrentMutable.GetService<IRequestService>();
+        private List<Event> _events;
         public async Task<(double latitude, double longtitude)> GetLatitudeandLongtitude(string locationName)
         {
             double latitude = 0;
@@ -23,6 +29,31 @@ namespace Viewer.Services
             var jsonResponse = await _requestService.HttpRequest(requestUrl);
             var coordinates = JsonConvert.DeserializeObject<EventOnMapModel>(jsonResponse);
             return(coordinates.Latitude, coordinates.Longtitude);
+        }
+
+        public async Task<List<Event>> Get()
+        {
+            try
+            {
+                var response = await _requestService.GetAsync("fsdgdgd");
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+                    var jsonstring = await response.Content.ReadAsStringAsync();
+                    using (StreamReader streamReader = new StreamReader(jsonstring))
+                    {
+                        _events = JsonConvert.DeserializeObject<List<Event>>(await streamReader.ReadToEndAsync(), new JsonSerializerSettings
+                        {
+                            TypeNameHandling = TypeNameHandling.All
+                        });
+                    }
+                    return _events;
+                }
+            }
+            catch(Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine(e.Message);
+            }
+            return null;
         }
 
 

@@ -3,7 +3,6 @@ using Android.Gms.Maps;
 using Android.OS;
 using Android.Views;
 using ReactiveUI;
-using Viewer.ViewModels;
 using Android.Gms.Maps.Model;
 using System.Reactive.Linq;
 using System;
@@ -14,6 +13,8 @@ using Android.Content;
 using System.Threading;
 using System.Linq;
 using System.IO;
+using Viewer.ViewModels;
+
 
 namespace Viewer.Droid.Views
 {

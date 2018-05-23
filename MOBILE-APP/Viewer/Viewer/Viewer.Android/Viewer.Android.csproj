@@ -82,8 +82,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BootstrapperDroid.cs" />
+    <Compile Include="Helpers\CustomAdapter.cs" />
     <Compile Include="Helpers\NavigateToFragment.cs" />
     <Compile Include="Helpers\ReadFileFromAssets.cs" />
+    <Compile Include="Helpers\TimePickerFragment.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -113,6 +115,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\Main.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\list_view_datatemplate.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

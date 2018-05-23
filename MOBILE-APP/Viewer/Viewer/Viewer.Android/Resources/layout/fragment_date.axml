@@ -5,17 +5,24 @@
     android:layout_height="match_parent"
     android:minWidth="25px"
     android:minHeight="25px"
-    android:background="#ff0000">
+    android:background="#44d9e6">
+    <TextView
+        android:id="@+id/time_display"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:paddingTop="22dp"
+        android:text="Picked time will be displayed here"
+        android:textSize="24dp" />
     <Button
         android:text="Wybierz czas"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:layout_below="@id/dateButton"
         android:id="@+id/timeButton" />
     <Button
-        android:text="Wybierz"
+        android:text="Akceptuję"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -24,7 +31,7 @@
         android:layout_below="@id/timeButton" />
     <Button
         android:text="Wybierz datę"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
