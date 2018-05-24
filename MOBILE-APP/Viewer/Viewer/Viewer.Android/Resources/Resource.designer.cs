@@ -3822,8 +3822,8 @@ namespace Viewer.Droid
 			// aapt resource value: 0x7f0c00b2
 			public const int map = 2131493042;
 			
-			// aapt resource value: 0x7f0c0101
-			public const int masked = 2131493121;
+			// aapt resource value: 0x7f0c0100
+			public const int masked = 2131493120;
 			
 			// aapt resource value: 0x7f0c00f1
 			public const int media_actions = 2131493105;
@@ -3831,8 +3831,8 @@ namespace Viewer.Droid
 			// aapt resource value: 0x7f0c00ad
 			public const int meetingButton = 2131493037;
 			
-			// aapt resource value: 0x7f0c00ff
-			public const int message = 2131493119;
+			// aapt resource value: 0x7f0c00fe
+			public const int message = 2131493118;
 			
 			// aapt resource value: 0x7f0c003c
 			public const int middle = 2131492924;
@@ -3954,8 +3954,8 @@ namespace Viewer.Droid
 			// aapt resource value: 0x7f0c00c0
 			public const int ok = 2131493056;
 			
-			// aapt resource value: 0x7f0c00af
-			public const int orchestraButton = 2131493039;
+			// aapt resource value: 0x7f0c00ae
+			public const int orchestraButton = 2131493038;
 			
 			// aapt resource value: 0x7f0c0056
 			public const int parallax = 2131492950;
@@ -4140,9 +4140,6 @@ namespace Viewer.Droid
 			// aapt resource value: 0x7f0c0073
 			public const int textSpacerNoTitle = 2131492979;
 			
-			// aapt resource value: 0x7f0c00fe
-			public const int textView = 2131493118;
-			
 			// aapt resource value: 0x7f0c00b6
 			public const int textViewDate = 2131493046;
 			
@@ -4164,8 +4161,8 @@ namespace Viewer.Droid
 			// aapt resource value: 0x7f0c0015
 			public const int textinput_error = 2131492885;
 			
-			// aapt resource value: 0x7f0c00ae
-			public const int theatreButton = 2131493038;
+			// aapt resource value: 0x7f0c00af
+			public const int theatreButton = 2131493039;
 			
 			// aapt resource value: 0x7f0c00f6
 			public const int time = 2131493110;
@@ -4233,8 +4230,8 @@ namespace Viewer.Droid
 			// aapt resource value: 0x7f0c0016
 			public const int view_offset_helper = 2131492886;
 			
-			// aapt resource value: 0x7f0c0100
-			public const int visible = 2131493120;
+			// aapt resource value: 0x7f0c00ff
+			public const int visible = 2131493119;
 			
 			// aapt resource value: 0x7f0c00e3
 			public const int volume_item_container = 2131493091;
@@ -4582,10 +4579,7 @@ namespace Viewer.Droid
 			public const int support_simple_spinner_dropdown_item = 2130903121;
 			
 			// aapt resource value: 0x7f030052
-			public const int text_row_item = 2130903122;
-			
-			// aapt resource value: 0x7f030053
-			public const int tooltip = 2130903123;
+			public const int tooltip = 2130903122;
 			
 			static Layout()
 			{

@@ -35,7 +35,7 @@
         android:layout_height="75dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:layout_below="@+id/meetingButton"
+        android:layout_above="@+id/orchestraButton"
         android:id="@+id/theatreButton" />
     <Button
         android:text="Orkiestra"

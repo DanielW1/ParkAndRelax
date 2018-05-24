@@ -86,7 +86,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BootstrapperDroid.cs" />
-    <Compile Include="Helpers\CustomAdapter.cs" />
     <Compile Include="Helpers\ListAdapter.cs" />
     <Compile Include="Helpers\NavigateToFragment.cs" />
     <Compile Include="Helpers\ReadFileFromAssets.cs" />
@@ -124,9 +123,6 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\fragment_eventsList.axml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
-    <AndroidResource Include="Resources\layout\text_row_item.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\between.axml">

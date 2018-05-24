@@ -4,17 +4,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:minWidth="25px"
+    android:background="#44d9e6"
     android:minHeight="25px">
     <Button
         android:text="Dalej"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/nextButton" />
+        android:layout_height="50dp"
+        android:id="@+id/nextButton"/>
     <ImageView
         android:id="@+id/imageView"
         android:paddingTop="10dp"
         android:layout_width="wrap_content"
-        android:layout_height="250dp"
+        android:layout_height="500dp"
         android:src="@drawable/logo"
+        android:layout_gravity="center_horizontal"
         android:layout_centerHorizontal="true" />
 </LinearLayout>
