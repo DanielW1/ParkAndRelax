@@ -11,7 +11,6 @@ namespace Viewer.ViewModels
 
                 SwitchToDate = ReactiveCommand.Create<Unit, DateViewModel>(_ => new DateViewModel());
                 SwitchToEvent = ReactiveCommand.Create<Unit, EventViewModel>(_ => new EventViewModel());
-         
 
         }
 

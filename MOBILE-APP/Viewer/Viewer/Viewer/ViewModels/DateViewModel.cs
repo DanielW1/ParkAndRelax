@@ -7,10 +7,10 @@ namespace Viewer.ViewModels
     {
         public DateViewModel()
         {
-                SwitchToEventsListFromEvent = ReactiveCommand.Create<Unit, EventsListViewModel>(_ => new EventsListViewModel());
+                SwitchToEventsListFromEvent = ReactiveCommand.Create<Unit, BetweenViewModel>(_ => new BetweenViewModel("Koncert"));
         }
 
-        public ReactiveCommand<Unit, EventsListViewModel> SwitchToEventsListFromEvent { get; private set; }
+        public ReactiveCommand<Unit, BetweenViewModel> SwitchToEventsListFromEvent { get; private set; }
         
     }
 }

@@ -15,30 +15,42 @@ namespace Viewer.Services
     public interface IGeoLocationService
     {
         Task <(double latitude, double longtitude)> GetLatitudeandLongtitude(string locationName);
-        Task <List<Event>> Get();
+        Task <List<Event>> GetAllEvents(string category);
 
     }
     public class GeoLocationService : IGeoLocationService
     {
-        private readonly IRequestService _requestService = Locator.CurrentMutable.GetService<IRequestService>();
         private List<Event> _events;
         private readonly HttpClient _httpClient = new HttpClient();
         public async Task<(double latitude, double longtitude)> GetLatitudeandLongtitude(string locationName)
         {
-            double latitude = 0;
-            double longtitude = 0;
+            
+            try
+            {
+                string basicurl = "https://maps.googleapis.com/maps/api/geocode/json";
+                var response = await _httpClient.GetStringAsync("https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyAkjyQKYUny2WPtnPpHRAyF6WOTbBrNMa0");
+                var coordinates = JsonConvert.DeserializeObject<EventOnMapModel>(response);
+            }
+              catch(Exception e)
+            {
 
-            var requestUrl = GetGeoLocatorRequestUrl(locationName);
-            var jsonResponse = await _requestService.HttpRequest(requestUrl);
-            var coordinates = JsonConvert.DeserializeObject<EventOnMapModel>(jsonResponse);
-            return(coordinates.Latitude, coordinates.Longtitude);
+                System.Diagnostics.Debug.WriteLine(e.Message);
+                System.Diagnostics.Debug.WriteLine("sdfffffffffffffffffffffffffffffffffffffdfsddsfssdsfdf");
+            }
+            double lat = 0;
+            double lng = 0;
+
+
+            return (lat,lng);
         }
 
-        public async Task<List<Event>> Get()
+        public async Task<List<Event>> GetAllEvents(string category)
         {
             try
             {
-                var response = await _httpClient.GetStringAsync("https://parkandriderest.azurewebsites.net/Events/search?category=Koncerty");
+                string basicurl = "https://parkandriderest.azurewebsites.net/Events/search?category=";
+                string url = basicurl + category;
+                var response = await _httpClient.GetStringAsync(url);
 
                 _events = JsonConvert.DeserializeObject<List<Event>>(response);
 
@@ -52,16 +64,7 @@ namespace Viewer.Services
         }
 
 
-        private static string GetGeoLocatorRequestUrl(string locationName)
-        {
-            var requestUrl = new Url("https://maps.googleapis.com/maps/api/geocode/json").SetQueryParams(new
-            {
-                address = "Toledo",
-                region = "pl",
-                key = "AIzaSyAkjyQKYUny2WPtnPpHRAyF6WOTbBrNMa0"
-            });
-            return requestUrl;
-        }
+        
     }
 
    

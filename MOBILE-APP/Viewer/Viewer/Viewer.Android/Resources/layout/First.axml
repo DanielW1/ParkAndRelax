@@ -7,17 +7,23 @@
     android:minWidth="25px"
     android:minHeight="25px"
     android:background="#44d9e6">
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="180dp"
+        android:src="@drawable/logo"
+        android:layout_centerHorizontal="true" />
     <Button
         android:text="Wydarzenie"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="75dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:id="@+id/eventButton" />
     <Button
         android:text="Data"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="75dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:layout_below="@id/eventButton"

@@ -13,7 +13,6 @@ namespace Viewer
         {
             Locator.CurrentMutable.RegisterConstant<IConvertingjsonService>(new ConvertingJsonService("ParkRideData.json"));
             Locator.CurrentMutable.RegisterConstant<IGeoLocationService>(new GeoLocationService());
-            Locator.CurrentMutable.RegisterConstant<IRequestService>(new RequestService());
         }
     }
 }

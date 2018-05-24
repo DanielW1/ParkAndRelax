@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
     <TextView
         android:text="Nazwa"
         android:textAppearance="?android:attr/textAppearanceLarge"
@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/textViewDate" />
     <TextView
-        android:text="E-mail"
+        android:text="Miejsce"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
         android:textStyle="italic"
@@ -31,11 +31,4 @@
         android:textStyle="italic"
         android:layout_height="wrap_content"
         android:id="@+id/textViewPrice" />
-    <TextView
-        android:text="Kategoria"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_width="match_parent"
-        android:textStyle="italic"
-        android:layout_height="wrap_content"
-        android:id="@+id/textViewCategory" />
 </LinearLayout>

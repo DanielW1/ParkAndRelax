@@ -10,8 +10,16 @@ using System.Reactive;
 
 namespace Viewer.ViewModels
 {
-    public class EventsListViewModel: ReactiveViewModel
+    public class EventsListViewModel : ReactiveViewModel
     {
+
+        private EventOnMapModel _eventOnMapModel;
+        
+        public EventOnMapModel EventOnMapModel
+        {
+            get => _eventOnMapModel;
+            set => this.RaiseAndSetIfChanged(ref _eventOnMapModel, value);
+        }
 
         private List<Event> _eventsList;
         public List<Event> EventsList
@@ -20,18 +28,25 @@ namespace Viewer.ViewModels
             set => this.RaiseAndSetIfChanged(ref _eventsList, value);
         }
         IGeoLocationService reqservice = Locator.CurrentMutable.GetService<IGeoLocationService>();
-        public EventsListViewModel()
+        public EventsListViewModel(string category)
         {
             this.WhenActivated((CompositeDisposable disposable) =>
             {
-                Observable.FromAsync(_ => reqservice.Get()).Subscribe(listofevents =>
-                {
-                    EventsList = listofevents;
-                });
+              
+                
+
+                /*Observable.FromAsync(_ => reqservice.GetLatitudeandLongtitude("ds riviera")).Subscribe(coordinates =>
+                        {
+                            EventOnMapModel.Latitude = coordinates.latitude;
+                            EventOnMapModel.Longtitude = coordinates.longtitude;
+                        }
+                        );
+                */
+                
             });
-
         }
-
         public ReactiveCommand<Unit, MapViewModel> SwitchToMap { get; private set; }
+
+
     }
 }
