@@ -16,6 +16,8 @@ using Android.Support.V7.RecyclerView;
 using Splat;
 using Viewer.Services;
 using System.Threading.Tasks;
+using System.Reactive;
+using System.Reactive.Disposables;
 
 namespace Viewer.Droid.Views
 {
@@ -28,15 +30,15 @@ namespace Viewer.Droid.Views
         List<Event> lstsource = new List<Event>();
         IGeoLocationService reqservice = Locator.CurrentMutable.GetService<IGeoLocationService>();
         View view;
+        Button buttonChoose;
 
-        public EventsListFragment()
+        public EventsListFragment(List<Event> events)
         {
-       
+            mEvents = events;
             this.WhenActivated(disposable =>
             {
-                var Events = reqservice.GetAllEvents("Koncert");
-               
-                /*
+
+
                 ViewModel.SwitchToMap.Subscribe(mapViewModel =>
                 {
                     var mapFragment = new MapFragment(52.2162198, 21.0144244, "Polska dla Polaków", "Tutaj można wszystko")
@@ -45,8 +47,10 @@ namespace Viewer.Droid.Views
                     };
                     Activity.NextFragment(Resource.Id.frame, mapFragment);
                 });
-                */
-              
+
+                recycler_view.Events().Click.Select(_ => Unit.Default).InvokeCommand(this, x => x.ViewModel.SwitchToMap).DisposeWith(disposable);
+                buttonChoose.Events().Click.Select(_ => Unit.Default).InvokeCommand(this, x => x.ViewModel.SwitchToMap).DisposeWith(disposable);
+                
             });
         }
 
@@ -62,25 +66,24 @@ namespace Viewer.Droid.Views
             view = inflater.Inflate(Resource.Layout.fragment_eventsList,container, false);
 
             recycler_view = view.FindViewById<RecyclerView>(Resource.Id.recyclerView);
+            buttonChoose = view.FindViewById<Button>(Resource.Id.buttonChoose);
 
-            var Events = reqservice.GetAllEvents("Koncert");
-
-            List<Event> lstsource = new List<Event>();
-            for (int i = 0; i < 20; i++)
-            {
-                Event evencik = new Event()
-                {
-                    Name = "James" + i,
-                    Date = "23.05.12" + i,
-                    Place = "Warszawa" + i,
-                    Price = "12 zł" + i,
-                };
-                lstsource.Add(evencik);
-            }
+            /*  List<Event> lstsource = new List<Event>();
+              for (int i = 0; i < 20; i++)
+              {
+                  Event evencik = new Event()
+                  {
+                      Name = "James" + i,
+                      Date = "23.05.12" + i,
+                      Place = "Warszawa" + i,
+                      Price = "12 zł" + i,
+                  };
+                  lstsource.Add(evencik);
+              }*/
 
             mLayoutManager = new LinearLayoutManager(Activity);
             recycler_view.SetLayoutManager(mLayoutManager);
-            mAdapter = new ListAdapter(Events);
+            mAdapter = new ListAdapter(mEvents);
             recycler_view.SetAdapter(mAdapter);
 
             return view;

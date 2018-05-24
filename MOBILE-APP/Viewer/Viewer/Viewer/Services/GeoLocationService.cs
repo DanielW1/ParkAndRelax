@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Net.Http;
+using System.Threading;
 using System.Threading.Tasks;
 using Flurl;
 using Flurl.Util;
@@ -52,6 +53,7 @@ namespace Viewer.Services
                 string url = basicurl + category;
                 var response = await _httpClient.GetStringAsync(url);
 
+               // Thread.Sleep(6000);
                 _events = JsonConvert.DeserializeObject<List<Event>>(response);
 
                     return _events;

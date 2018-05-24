@@ -1,34 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <TextView
-        android:text="Nazwa"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textStyle="bold"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textViewName" />
-    <TextView
-        android:text="Data"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textStyle="italic"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textViewDate" />
-    <TextView
-        android:text="Miejsce"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_width="match_parent"
-        android:textStyle="italic"
-        android:layout_height="wrap_content"
-        android:id="@+id/textViewPlace" />
-    <TextView
-        android:text="Cena"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_width="match_parent"
-        android:textStyle="italic"
-        android:layout_height="wrap_content"
-        android:id="@+id/textViewPrice" />
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="1dp"
+    android:background="#FAFAFA"
+    android:weightSum="100">
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="88"
+        android:orientation="vertical"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="7dp"
+        android:paddingBottom="7dp">
+        <TextView
+            android:text="Name"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewName"
+            android:textColor="#000"
+            android:gravity="center_vertical"
+            android:padding="2dp"
+            android:textSize="18sp" />
+        <TextView
+            android:text="Place"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewPlace"
+            android:textColor="#000"
+            android:gravity="center_vertical"
+            android:padding="2dp"
+            android:textSize="16sp" />
+        <TextView
+            android:text="Price"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewPrice"
+            android:textColor="#000"
+            android:gravity="center_vertical"
+            android:padding="2dp"
+            android:textSize="16sp" />
+        <TextView
+            android:text="Date"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewDate"
+            android:textColor="#000"
+            android:gravity="center_vertical"
+            android:padding="2dp"
+            android:textSize="14sp"
+            android:singleLine="true" />
+    </LinearLayout>
 </LinearLayout>

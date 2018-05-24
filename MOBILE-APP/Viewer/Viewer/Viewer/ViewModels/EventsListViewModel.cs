@@ -27,22 +27,12 @@ namespace Viewer.ViewModels
             get => _eventsList;
             set => this.RaiseAndSetIfChanged(ref _eventsList, value);
         }
-        IGeoLocationService reqservice = Locator.CurrentMutable.GetService<IGeoLocationService>();
-        public EventsListViewModel(string category)
+        
+        public EventsListViewModel( )
         {
             this.WhenActivated((CompositeDisposable disposable) =>
             {
-              
-                
-
-                /*Observable.FromAsync(_ => reqservice.GetLatitudeandLongtitude("ds riviera")).Subscribe(coordinates =>
-                        {
-                            EventOnMapModel.Latitude = coordinates.latitude;
-                            EventOnMapModel.Longtitude = coordinates.longtitude;
-                        }
-                        );
-                */
-                
+                SwitchToMap = ReactiveCommand.Create<Unit, MapViewModel>(_ => new MapViewModel());
             });
         }
         public ReactiveCommand<Unit, MapViewModel> SwitchToMap { get; private set; }

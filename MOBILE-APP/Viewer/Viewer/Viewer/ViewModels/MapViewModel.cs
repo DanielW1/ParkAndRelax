@@ -29,8 +29,8 @@ namespace Viewer.ViewModels
             this.WhenActivated(disposable=>
             {
                 IConvertingjsonService service = Locator.CurrentMutable.GetService<IConvertingjsonService>();
-                IGeoLocationService geoservice = Locator.CurrentMutable.GetService<IGeoLocationService>();
-
+ //               IGeoLocationService geoservice = Locator.CurrentMutable.GetService<IGeoLocationService>();
+/*
                 Observable.FromAsync(_ => service.GetAllParkings())
                 .Select(async parkings =>
                 {
@@ -41,7 +41,7 @@ namespace Viewer.ViewModels
                     System.Diagnostics.Debug.WriteLine("Latitude" + eventLatLng.latitude.ToString());
                 })
                 .Subscribe()
-                .DisposeWith(disposable);
+                .DisposeWith(disposable);*/
 
                 Observable.FromAsync(_ => service.GetAllParkings()).Subscribe(parkingList =>
                 {

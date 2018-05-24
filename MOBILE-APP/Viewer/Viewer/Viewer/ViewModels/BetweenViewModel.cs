@@ -8,6 +8,7 @@ using Viewer.Services;
 using Viewer.Models;
 using System.Reactive.Disposables;
 using System.Reactive.Linq;
+using System.Threading;
 
 namespace Viewer.ViewModels
 {
@@ -26,13 +27,12 @@ namespace Viewer.ViewModels
 
             this.WhenActivated((CompositeDisposable disposable) =>
             {
-                Observable.FromAsync(_ => reqservice.GetAllEvents(category)).Subscribe(events =>
+                         Observable.FromAsync(_ => reqservice.GetAllEvents(category)).Subscribe(events =>
                       {
                           EventsList = events;
                       }
                       );
-              */
-
+                Thread.Sleep(4000);
             });
         }
         public ReactiveCommand <Unit, EventsListViewModel> SwitchToEventsListFromBetween { get; private set; }

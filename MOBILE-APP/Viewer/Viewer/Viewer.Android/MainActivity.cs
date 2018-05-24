@@ -37,28 +37,10 @@ namespace Viewer.Droid
             base.OnCreate(bundle);
 
             SetContentView(Resource.Layout.Main);
-           /* 
-            recycler_view = FindViewById<RecyclerView>(Resource.Id.recyclerView);
-            List<Event> lstsource = new List<Event>();
-            for (int i = 0; i < 5; i++)
-            {
-                Event evencik = new Event()
-                {
-                    Name = "James" + i,
-                    Date = "23.05.12" + i,
-                    Place = "Warszawa" + i,
-                    Price = "12 zł" + i,
-                };
-                lstsource.Add(evencik);
-            }*/
-            /*
-            mLayoutManager = new LinearLayoutManager(this);
-            recycler_view.SetLayoutManager(mLayoutManager);
-            mAdapter = new ListAdapter(lstsource);
-            recycler_view.SetAdapter(mAdapter);*/
 
-           var mainFragment = new MainFragment(){ ViewModel = new MainViewModel()};
-           this.NextFragment(Resource.Id.frame, mainFragment);
+
+           var eventFragment = new EventFragment(){ ViewModel = new EventViewModel()};
+           this.NextFragment(Resource.Id.frame, eventFragment);
             
            
         }

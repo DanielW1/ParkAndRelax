@@ -9,7 +9,8 @@ using Android.Icu.Util;
 using Android.App;
 using Viewer.Droid.Helpers;
 using System.Reactive.Disposables;
-
+using Viewer.Models;
+using System.Collections.Generic;
 
 namespace Viewer.Droid.Views
 {
@@ -20,18 +21,18 @@ namespace Viewer.Droid.Views
         Button _chooseButton;
         TextView _time;
         TextView _date;
-
+        List<Event> events;
         public DateFragment()
         {
 
             this.WhenActivated((CompositeDisposable disposable) =>
             {
-                ViewModel.SwitchToEventsListFromEvent.Subscribe(eventslistViewModel =>
+                /*ViewModel.SwitchToEventsListFromEvent.Subscribe(eventslistViewModel =>
                 {
-                    var eventslistFragment = new EventsListFragment() { ViewModel = eventslistViewModel };
+                    var eventslistFragment = new EventsListFragment(events) { ViewModel = eventslistViewModel };
                     Activity.NextFragment(Resource.Id.frame, eventslistFragment);
                 }
-                ).DisposeWith(disposable);
+                ).DisposeWith(disposable);*/
 
 
 

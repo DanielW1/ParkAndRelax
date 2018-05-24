@@ -36,35 +36,35 @@ namespace Viewer.Droid.Views
             {
                 ViewModel.SwitchToEventsListConcert.Subscribe(EventsListViewModel =>
                 {
-                    var eventListFragment = new EventsListFragment() { ViewModel = EventsListViewModel };
+                    var eventListFragment = new BetweenFragment() { ViewModel = EventsListViewModel };
                     Activity.NextFragment(Resource.Id.frame, eventListFragment);
                 }
                 ).DisposeWith(disposable);
 
                 ViewModel.SwitchToEventsListTheatre.Subscribe(EventsListViewModel =>
                 {
-                    var eventListFragment = new EventsListFragment() { ViewModel = EventsListViewModel };
+                    var eventListFragment = new BetweenFragment() { ViewModel = EventsListViewModel };
                     Activity.NextFragment(Resource.Id.frame, eventListFragment);
                 }
         ).DisposeWith(disposable);
 
                 ViewModel.SwitchToEventsListOrchestra.Subscribe(EventsListViewModel =>
                 {
-                    var eventListFragment = new EventsListFragment() { ViewModel = EventsListViewModel };
+                    var eventListFragment = new BetweenFragment() { ViewModel = EventsListViewModel };
                     Activity.NextFragment(Resource.Id.frame, eventListFragment);
                 }
         ).DisposeWith(disposable);
 
                 ViewModel.SwitchToEventsListMeeting.Subscribe(EventsListViewModel =>
                 {
-                    var eventListFragment = new EventsListFragment() { ViewModel = EventsListViewModel };
+                    var eventListFragment = new BetweenFragment() { ViewModel = EventsListViewModel };
                     Activity.NextFragment(Resource.Id.frame, eventListFragment);
                 }
         ).DisposeWith(disposable);
 
                 ViewModel.SwitchToEventsListLecture.Subscribe(EventsListViewModel =>
                 {
-                    var eventListFragment = new EventsListFragment() { ViewModel = EventsListViewModel };
+                    var eventListFragment = new BetweenFragment() { ViewModel = EventsListViewModel };
                     Activity.NextFragment(Resource.Id.frame, eventListFragment);
                 }
         ).DisposeWith(disposable);
