@@ -36,7 +36,6 @@ namespace Viewer.Services
             {
 
                 System.Diagnostics.Debug.WriteLine(e.Message);
-                System.Diagnostics.Debug.WriteLine("sdfffffffffffffffffffffffffffffffffffffdfsddsfssdsfdf");
             }
             double lat = 0;
             double lng = 0;

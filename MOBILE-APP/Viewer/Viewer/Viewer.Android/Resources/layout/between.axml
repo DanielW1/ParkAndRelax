@@ -10,7 +10,15 @@
         android:text="Dalej"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:id="@+id/nextButton"/>
+        android:id="@+id/nextButton" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="23dp"
+        android:text="Ładowanie..."
+        android:layout_centerHorizontal="true"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        />
     <ImageView
         android:id="@+id/imageView"
         android:paddingTop="10dp"
