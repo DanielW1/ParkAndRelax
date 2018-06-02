@@ -25,23 +25,27 @@ namespace Viewer.Services
         private readonly HttpClient _httpClient = new HttpClient();
         public async Task<(double latitude, double longtitude)> GetLatitudeandLongtitude(string locationName)
         {
-            
+            double latitude;
+            double longtitude;
             try
             {
                 string basicurl = "https://maps.googleapis.com/maps/api/geocode/json";
-                var response = await _httpClient.GetStringAsync("https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyAkjyQKYUny2WPtnPpHRAyF6WOTbBrNMa0");
-                var coordinates = JsonConvert.DeserializeObject<EventOnMapModel>(response);
+                var response = await _httpClient.GetStringAsync("https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyAIek0_YxK1JGXqlAR7GTaXhjABmINIsNI");
+                GeoCoderModel dataResult = JsonConvert.DeserializeObject<GeoCoderModel>(response);
+                latitude = dataResult.results[0].geometry.location.lat;
+                longtitude = dataResult.results[0].geometry.location.lng;
             }
               catch(Exception e)
             {
 
                 System.Diagnostics.Debug.WriteLine(e.Message);
+                latitude = 0;
+                longtitude = 0;
             }
-            double lat = 0;
-            double lng = 0;
 
 
-            return (lat,lng);
+
+            return (latitude, longtitude);
         }
 
         public async Task<List<Event>> GetAllEvents(string category)
@@ -52,7 +56,6 @@ namespace Viewer.Services
                 string url = basicurl + category;
                 var response = await _httpClient.GetStringAsync(url);
 
-               // Thread.Sleep(6000);
                 _events = JsonConvert.DeserializeObject<List<Event>>(response);
 
                     return _events;

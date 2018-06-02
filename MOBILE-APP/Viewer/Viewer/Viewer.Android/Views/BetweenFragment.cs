@@ -43,7 +43,7 @@ namespace Viewer.Droid.Views
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             base.OnCreateView(inflater, container, savedInstanceState);
-
+            Thread.Sleep(5000);
             var view = inflater.Inflate(Resource.Layout.between, container, false);
             _nextButton = view.FindViewById<Button>(Resource.Id.nextButton);
 

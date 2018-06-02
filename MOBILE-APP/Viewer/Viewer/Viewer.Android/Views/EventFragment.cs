@@ -38,36 +38,31 @@ namespace Viewer.Droid.Views
                 {
                     var eventListFragment = new BetweenFragment() { ViewModel = EventsListViewModel };
                     Activity.NextFragment(Resource.Id.frame, eventListFragment);
-                }
-                ).DisposeWith(disposable);
+                }).DisposeWith(disposable);
 
                 ViewModel.SwitchToEventsListTheatre.Subscribe(EventsListViewModel =>
                 {
                     var eventListFragment = new BetweenFragment() { ViewModel = EventsListViewModel };
                     Activity.NextFragment(Resource.Id.frame, eventListFragment);
-                }
-        ).DisposeWith(disposable);
+                }).DisposeWith(disposable);
 
                 ViewModel.SwitchToEventsListOrchestra.Subscribe(EventsListViewModel =>
                 {
                     var eventListFragment = new BetweenFragment() { ViewModel = EventsListViewModel };
                     Activity.NextFragment(Resource.Id.frame, eventListFragment);
-                }
-        ).DisposeWith(disposable);
+                }).DisposeWith(disposable);
 
                 ViewModel.SwitchToEventsListMeeting.Subscribe(EventsListViewModel =>
                 {
                     var eventListFragment = new BetweenFragment() { ViewModel = EventsListViewModel };
                     Activity.NextFragment(Resource.Id.frame, eventListFragment);
-                }
-        ).DisposeWith(disposable);
+                }).DisposeWith(disposable);
 
                 ViewModel.SwitchToEventsListLecture.Subscribe(EventsListViewModel =>
                 {
                     var eventListFragment = new BetweenFragment() { ViewModel = EventsListViewModel };
                     Activity.NextFragment(Resource.Id.frame, eventListFragment);
-                }
-        ).DisposeWith(disposable);
+                }).DisposeWith(disposable);
 
                 _concertButton.Events().Click.Select(_ => Unit.Default).InvokeCommand(this, x => x.ViewModel.SwitchToEventsListConcert).DisposeWith(disposable);
                 _meetingButton.Events().Click.Select(_ => Unit.Default).InvokeCommand(this, x => x.ViewModel.SwitchToEventsListMeeting).DisposeWith(disposable);

@@ -12,7 +12,7 @@ using System.Threading;
 
 namespace Viewer.ViewModels
 {
-    public class BetweenViewModel:ReactiveViewModel
+    public class BetweenViewModel : ReactiveViewModel
     {
         private List<Event> _eventsList;
         public List<Event> EventsList
@@ -27,14 +27,14 @@ namespace Viewer.ViewModels
 
             this.WhenActivated((CompositeDisposable disposable) =>
             {
-                         Observable.FromAsync(_ => reqservice.GetAllEvents(category)).Subscribe(events =>
-                      {
-                          EventsList = events;
-                      }
-                      );
+                Observable.FromAsync(_ => reqservice.GetAllEvents(category)).Subscribe(events =>
+             {
+                 EventsList = events;
+             }
+             );
                 Thread.Sleep(4000);
             });
         }
-        public ReactiveCommand <Unit, EventsListViewModel> SwitchToEventsListFromBetween { get; private set; }
+        public ReactiveCommand<Unit, EventsListViewModel> SwitchToEventsListFromBetween { get; private set; }
     }
 }

@@ -26,7 +26,7 @@ namespace Viewer.Droid.Views
         private RecyclerView recycler_view;
         private RecyclerView.LayoutManager mLayoutManager;
         private RecyclerView.Adapter mAdapter;
-        private List<Event> mEvents;
+        private List<Event> mEvents = new List<Event>();
         List<Event> lstsource = new List<Event>();
         IGeoLocationService reqservice = Locator.CurrentMutable.GetService<IGeoLocationService>();
         View view;
@@ -80,12 +80,13 @@ namespace Viewer.Droid.Views
                   };
                   lstsource.Add(evencik);
               }*/
-
-            mLayoutManager = new LinearLayoutManager(Activity);
-            recycler_view.SetLayoutManager(mLayoutManager);
-            mAdapter = new ListAdapter(mEvents);
-            recycler_view.SetAdapter(mAdapter);
-
+            if (mEvents != null)
+            {
+                mLayoutManager = new LinearLayoutManager(Activity);
+                recycler_view.SetLayoutManager(mLayoutManager);
+                mAdapter = new ListAdapter(mEvents);
+                recycler_view.SetAdapter(mAdapter);
+            }
             return view;
         }
        

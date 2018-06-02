@@ -29,25 +29,25 @@ namespace Viewer.ViewModels
             this.WhenActivated(disposable=>
             {
                 IConvertingjsonService service = Locator.CurrentMutable.GetService<IConvertingjsonService>();
- //               IGeoLocationService geoservice = Locator.CurrentMutable.GetService<IGeoLocationService>();
-/*
+                IGeoLocationService geoservice = Locator.CurrentMutable.GetService<IGeoLocationService>();
+
                 Observable.FromAsync(_ => service.GetAllParkings())
                 .Select(async parkings =>
                 {
                     ParkandRides = parkings;
-                    var eventLatLng = await geoservice.GetLatitudeandLongtitude("Riviera");
+                    var eventLatLng = await geoservice.GetLatitudeandLongtitude("DS Riviera");
                     EventOnMapModel.Latitude = eventLatLng.latitude;
                     EventOnMapModel.Longtitude = eventLatLng.longtitude;
                     System.Diagnostics.Debug.WriteLine("Latitude" + eventLatLng.latitude.ToString());
                 })
                 .Subscribe()
-                .DisposeWith(disposable);*/
+                .DisposeWith(disposable);
 
-                Observable.FromAsync(_ => service.GetAllParkings()).Subscribe(parkingList =>
+               /* Observable.FromAsync(_ => service.GetAllParkings()).Subscribe(parkingList =>
                 {
                     ParkandRides = parkingList;
                 }).DisposeWith(disposable);
-
+                */
 
             });
         }
